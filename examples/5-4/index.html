@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Example 5-4: HTML Structure and CSS selector</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../css/default.css">
+		<style>
+			body {
+				font-size: 24px;
+			}
+
+			p {
+				background-color: pink;
+			}
+
+			/*p#first {
+				background-color: orange;
+			}*/
+
+			/*body > p {
+				background-color: orange;
+			}*/
+
+			body p {
+				background-color: orange;
+			}
+
+			/*div {
+				background-color: crimson;
+			}*/
+
+			/*div.friends {
+				background-color: yellow;
+			}*/
+
+			/*p + div {
+				background-color: crimson;
+			}*/
+
+			p ~ div {
+				background-color: crimson;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="first">This is a paragraph.</p>
+		<div class="friends">
+			This is a div.
+			<p>This is another paragraph.</p>
+			<p>This is the last paragraph.</p>
+		</div>
+		<div class="friends">
+			Here is just another div.
+		</div>
+		<div>
+			I don't like other div.
+		</div>
+	</body>
+</html>
