@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+		<title>Example 6-1: Priority/Specificity</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../css/default.css">
+		<style>
+			body {
+				background-color: skyblue;
+			}
+
+			body {
+				background-color: orange;
+			}
+
+			section > p {
+				background-color: limegreen !important;
+			}
+
+			p {
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<p>This is the first paragraph.</p>
+		<section>
+			This is a section.
+			<p style="background-color: crimson;">This is a second paragraph inside a section.</p>
+		</section>
+	</body>
+</html>
