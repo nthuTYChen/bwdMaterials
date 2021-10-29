@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>Quiz 3: Complex CSS Selectors Q4</title>
+		<style>
+			/* Choose the simplest selector that targets exactly at all the <p> elements that have any ancestor of any hovered <div> element in <body>. */
+
+			/* <p>s are highlighted as immediate childrens of a <div> when the cursor is on <p>s. */
+			/*body div > p:hover {
+				background-color: yellow;
+			}*/
+
+			/* <p>s are highlighted in any <div> only when the cursor is on <p>s. */
+			/*body div p:hover {
+				background-color: yellow;
+			}*/
+
+			/* Only <p>s that are immediate children of any <div> are highlighted when the cursor is on <p>s. */
+			/*body div:hover > p:hover {
+				background-color: yellow;
+			}*/
+
+			/* Correct Answer */
+			body div:hover p {
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Div #1
+			<p>Paragraph #1</p> <!-- Target when the ancestor <div> has the cursor on it -->
+			<section>Section #1
+				<p>Paragraph #2</p> <!-- Target when the ancestor <div> has the cursor on it -->
+			</section>
+		</div>
+		<article>
+			Article #1
+			<div>
+				Div #2
+				<p>Paragraph #3</p> <!-- Target when the ancestor <div> has the cursor on it -->
+			</div>
+		</article>
+	</body>
+</html>
