@@ -5,3 +5,25 @@ function printMsg() {
 }
 
 printMsg();
+
+var varFunction = function() {
+	console.log('This is a function stored in a variable.');
+};
+
+varFunction();
+
+// ---------------------------
+
+alwaysDoFirst();
+
+function alwaysDoFirst() {
+	console.log('You can call this function anywhere in the script!');
+}
+
+// callThisLater(); // This line causes an error.
+
+var callThisLater = function() {
+	console.log('You can only call this function after it is built.');
+};
+
+callThisLater();
