@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+		<title>Example 13-1: jQuery animation</title>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+			window.onload = function() {
+ 				$('button#fadeOut').on('click', function() {
+ 					$('div#fading').fadeOut(); // 400 ms by default
+ 				});
+
+ 				$('button#fadeIn').on('click', function() {
+ 					$('div#fading').fadeIn();
+ 				});
+
+ 				$('button#fadeTo').on('click', function() {
+ 					$('div#fading').fadeTo(500, 0.5); // length in ms and opacity
+ 				});
+
+ 				$('button#hide').on('click', function() {
+ 					$('div#hiding').hide('slow'); // 600 ms
+ 				});
+
+ 				$('button#show').on('click', function() {
+ 					$('div#hiding').show('fast'); // 200 ms
+ 				});
+
+ 				$('button#toggle').on('click', function() {
+ 					$('div#hiding').toggle(2000); // 2000 ms
+ 				});
+
+ 				$('button#slideUp').on('click', function() {
+ 					$('div#sliding').slideUp(2000); // 2000 ms
+ 				});
+
+ 				$('button#slideDown').on('click', function() {
+ 					$('div#sliding').slideDown('fast'); // 200 ms
+ 				});
+
+ 				$('button#slideToggle').on('click', function() {
+ 					$('div#sliding').slideToggle('slow'); // 600 ms
+ 				});
+
+ 				$('button#slideUpShow').on('click', function() {
+ 					// Run a callback function when slideUp() is done,
+ 					// then run the show() function.
+ 					//$('div#comeAndGo').slideUp(1000, function() {
+ 					//	$('div#comeAndGo').show(500);
+ 					//});
+
+ 					// The above animations in one line.
+ 					// $('div#comeAndGo').slideUp(1000).show(500);
+
+ 					// The above animations with a delay
+ 					$('div#comeAndGo').slideUp(1000).delay(1000).show(500);
+ 				});
+			};
+		</script>
+		<style>
+			div {
+				padding: 5px;
+				background-color: red;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="fading">Fade Out</div>
+		<button id="fadeOut">Fade Out</button>
+		<button id="fadeIn">Fade In</button>
+		<button id="fadeTo">Fade to...</button>
+
+		<div id="hiding">Hiding</div>
+		<button id="hide">Hide</button>
+		<button id="show">Show</button>
+		<button id="toggle">Toggle</button>
+
+		<div id="sliding">Sliding</div>
+		<button id="slideUp">Slide up</button>
+		<button id="slideDown">Slide Down</button>
+		<button id="slideToggle">Slide Toggle</button>
+
+		<div id="comeAndGo">Come and Go</div>
+		<button id="slideUpShow">Slide up and show</button>
+	</body>
+</html>
