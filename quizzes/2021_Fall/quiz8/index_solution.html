@@ -8,18 +8,37 @@
 		<script>
 			// Hint: Every time you hit the "Light up!" button, this "index" variable increases by 1 (index += 1 or index = index + 1).
 			//       And every time you hit the "Turn off!" button, index decreases by 1
-			let index = 0, targetPos = 90; // You can try to use this targetPos variable to set the target position for each <span>; 90 + 'vw'
+			let index = 0, targetPos = 90; // targetPos must be combined with the string "vw" (90 + 'vw') to become a reasonable CSS setting.
 			window.onload = function() {
  				// Edit the jQuery event listener for the "Light up!" button here to make every <span>
  				// appear one by one using the jQuery animate() function.
  				$('button#lightUp').on('click', function() {
- 					// Try to use animate() to change three CSS settings in order to make a <span> appear.
+ 					$('span').eq(index).animate({
+ 						height: '60px',
+ 						right: targetPos + 'vw', // Use targetPos to set the distance between each <span> and the right edge of <p>
+ 						opacity: 1
+ 					}, 4000);
+ 					// The position of an array should never be equal to or higher than the length of the entire array
+ 					if(index + 1 < $('span').length) {
+ 						index += 1; // Set a new target
+ 						targetPos -= 6; // Set a new position
+ 					}
  				});
 
  				// Edit the jQuery event listener for the "Turn off!" button here to make every <span>
  				// disappear one by one using the jQuery animate() function.
  				$('button#turnOff').on('click', function() {
- 					// Try to animate() to reset three CSS settings in order to make a <span> disappear.
+ 					$('span').eq(index).animate({
+ 						// Reset everything
+ 						height: 0,
+ 						right: '5vw',
+ 						opacity: 0
+ 					}, 2000);
+ 					// The position of an array can never go below 0
+ 					if(index - 1 >= 0) {
+ 						index -= 1; // Set a new target
+ 						targetPos += 6; // Gradually reset the target position
+ 					}
  				});
 			};
 		</script>
