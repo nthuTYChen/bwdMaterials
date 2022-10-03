@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+		<title>Example 4-2</title>
+		<meta charset="utf-8">
+		<style>
+			/* <p> is the immediate child of <article> */
+			/*article > p {
+				font-size: 130%;
+			}*/
+
+			/* <p> is an immediate or distant chid of <article>. */
+			article p {
+				font-size: 130%;
+			}
+		</style>
+	</head>
+	<body>
+		<article>
+			<h1>This is the article header.</h1>
+			<div>This is a div.</div>
+			<!-- This <p> is an immediate child of <article> -->
+			<p>This is the summary of an article.</p>
+			<section>
+				First section.
+				<!-- This <p> (and all other <p>s under <section>) is a distant child of <article> -->
+				<p>
+					Section 1 Paragraph 1.
+				</p>
+			</section>
+			<section>
+				Second section.
+				<p>
+					Section 2 Paragraph 1.
+				</p>
+			</section>
+			<section>
+				Third section.
+				<p>
+					Section 3 Paragraph 1.
+				</p>
+			</section>
+		</article>
+	</body>
+</html>
