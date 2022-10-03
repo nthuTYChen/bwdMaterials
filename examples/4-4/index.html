@@ -8,31 +8,39 @@
 				background-color: orange;
 			}
 
+			/* Only applies to <a> in <nav> */
 			nav > a {
 				font-family: sans-serif;
 				color: black;
 				text-decoration: none;
 			}
 
+			/* Only applies to first <a> of all <a> siblings in <nav> with the "pseudo-class" :first-of-type */
 			nav > a:first-of-type {
 				font-weight: bold;
-				cursor: initial;
+				/* Set the mouse cursor type to "initial" so the cursor is not a "pointer" when the cursor is moved over the first <a> of all <a> siblings in <nav>.  */
+				cursor: initial;	
 			}
 
+			/* Applies to hovered <a> siblings in <nav> excepted for the first <a> of all <a> siblings with the pseudo-class :not() */
 			nav > a:not(:first-of-type):hover {
 				color: white;
 				font-weight: bold;
 			}
 
+			/* Style what comes after each </a> inside <p> using the pseudo-element "::after" */
 			p > a::after {
+				/* Add the text "[link]" after each </a> using CSS, so you don't have to manually add the text to every single </a> */
 				content: '[link]';
 			}
 
+			/* Applies to all <a>s in the HTML document. The color and text-decoration settings are nevertheless overridden by a more "specific" CSS setting above targeting a smaller subset of <a>s in <nav>. */
 			a {
 				color: darkgray;
 				text-decoration: none;
 			}
 
+			/* Applies to all <a>s with URLs that have been visited previously by users. */
 			a:visited {
 				color: darkgray;
 			}
@@ -40,6 +48,7 @@
 	</head>
 	<body>
 		<nav>
+			<!-- The first <a> is designed only to present the texts to show users that this block is a nagivation pane. And that's why we need to style this first <a> of all five <a> siblings with specific CSS settings above -->
 			<a href="/">Menu: </a>
 			<a href="/">Menu Item 1</a>
 			<a href="/">Menu Item 2</a>
