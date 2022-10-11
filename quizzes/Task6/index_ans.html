@@ -75,9 +75,10 @@
 
 			/* Use the pseudo class :not() to exclude some element, and inside :not(), use the pseudo 
 			class :nth-of-type() to specify which <section> element has to be excluded. In the 
-			selector below, all but the fourth <section> element in the second <article> (also the 
-			last one) is set to have a yellow background color. Others still have the default orange 
-			background color inherited from the CSS settings of both <article> elements. */
+			selector below, all but the fourth <section> element in the second <article> (which is also 
+			the last <article> on the same level) is set to have a yellow background color. Others still 
+			have the default orange  background color inherited from the CSS settings of both <article>
+			elements. */
 			article:last-of-type > section:not(:nth-of-type(4)) {
 				background-color: yellow;
 			}
