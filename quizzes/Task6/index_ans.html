@@ -39,24 +39,28 @@
 
 			/* Try to keep your CSS settings as simple as possible */
 			nav {
-				position: fixed;
-				top: 0;
-				width: 80%;
-				opacity: 0.8;
+				position: fixed; /* So <nav> is always fixed to the same position in the viewport. */
+				top: 0; /* Stick to the top edge of the viewport */
+				width: 80%; /* Once the position is set to "fixed", it does not inherit any width from an ancestor element, so we need to set the width once again. Here the reference element is the entire viewport, so 80% means "80%" of the viewport width. */
+				opacity: 0.8; /* So <nav> does not block the contents completely when scrolling. */
 			}
 
 			article {
+				/* Since most <section> elements are required to have an orange background, the "simplest" solution is to set both <article> elements to have a "default" orange background, and change specific <section> elements to have a difference background color if necessay. This setting is also enough to change the background color of <h1> inside all <article> elements.*/
 				background-color: orange;
 			}
 
 			article:first-of-type {
+				/* Leave a margin of 5vh above the first <article> (which is the same as the height of <nav>), so <article> never overlaps with <nav> at the top of the page. */
 				margin-top: 5vh;
 			}
 
 			article:first-of-type > section:nth-of-type(even) {
+				/* For the first <article> element, set a yellow background color for all even-numbered <section> elements. Remember, we still have a default orange background color inherit from the settings for all <article> elements, so odd-numbered <section> elements in this <article> remain to have an orange background color. */
 				background-color: yellow;
 			}
 
+			/* Use the pseudo class :not() to exclude some element, and inside :not(), use the pseudo class :nth-of-type() to specify which <section> element has to be excluded. In the selector below, all but the fourth <section> element in the second <article> (also the last one) is set to have a yellow background color. Others still have the default orange background color inherited from the CSS settings of both <article> elements. */
 			article:last-of-type > section:not(:nth-of-type(4)) {
 				background-color: yellow;
 			}
