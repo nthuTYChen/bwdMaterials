@@ -58,7 +58,10 @@
 
 			article:first-of-type {
 				/* Leave a margin of 5vh above the first <article> (which is the same as the height 
-				of <nav>), so <article> never overlaps with <nav> at the top of the page. */
+				of <nav>), so <article> never overlaps with <nav> at the top of the page. This empty
+				space between the top edge of the viewport and the first <article> pushes down
+				everything else (except <nav>, which is already removed from the default layout flow
+				with a fixed position). */
 				margin-top: 5vh;
 			}
 
