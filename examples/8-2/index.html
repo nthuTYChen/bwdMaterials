@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+		<title>Example 8-2</title>
+		<meta charset="utf-8">
+		<script>
+			// Totally OK.
+			msg();
+
+			// Hoisting effect: Moved to the beginning of the script by default
+			function msg () {
+				alert('This is a message!');
+			}
+
+			//msg();
+
+			function flexibleMsg (str) {
+				let finalMsg = 'Site message: ' + str;
+				alert(finalMsg);
+			}
+
+			//flexibleMsg('Hi!');
+
+			function complexCalc (x, y) {
+				let result = 0;
+				result = x * y;
+				result = result / (x - y);
+				result = result * y - x;
+				alert(result);
+			}
+
+			//complexCalc(5, 4);
+		</script>
+	</head>
+	<body>
+		<h1>JavaScript Tutorials</h1>
+	</body>
+</html>
