@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+		<title>Task 12</title>
+		<meta charset="utf-8">
+		<script>
+			// Add your own JS codes here
+
+			/* A function designed to show or hide a <div> element inside <figure> 
+			   depending on whether the ID of the <div> matches the target ID.
+			*/
+			function showTargetPic () {
+				// Regardless of which <div> inside <nav> is clicked, we can always
+				// obtain the <div>'s ID using "this.id", so we will get "red", "blue", etc.
+				let clickedId = this.id;
+				// The ID of <div> inside <figure> differs from the ID of <div> inside <nav>
+				// only by "Pic", so adding "Pic" to the ID obtained above will be the ID
+				// of the <div> inside <figure> to be displayed, such as "redPic", "bluePic", etc.
+				let targetId = clickedId + 'Pic';
+				// Get all the <div> elements inside <figure>
+				let allPics = document.querySelectorAll('figure > div');
+				// Iterate through all <div> elements inside <figure> using a "for loop".
+				for(let i=0 ; i<allPics.length ; i++) {
+					// Get the individual <div> element representing a picture
+					let pic = allPics[i];
+					// Check if the element's ID matches the target ID obtained above.
+					if(pic.id === targetId) {
+						// If "true", then set the "display" property of the element to
+						// be "block", which is the default for a block element like <div>
+						pic.style.display = 'block';
+					}
+					else {
+						// If "true", set the property to be "none" to hide the element.
+						pic.style.display = 'none';
+					}
+				}
+			}
+
+			window.onload = function () {
+				// Just to bind every single <div> element inside <nav> to showTargetPic
+				// with a "for loop"
+				let allMenuItems = document.querySelectorAll('nav > div');
+				for(let i=0 ; i<allMenuItems.length ; i++) {
+					let item = allMenuItems[i];
+					item.addEventListener('click', showTargetPic);
+				}
+			}
+		</script>
+		<style>
+			/* Do NOT change anything in <style> */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			html {
+				width: 100%;
+				height: 100%;
+			}
+
+			body {
+				padding: 0 10%;
+			}
+
+			nav > div {
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				margin: 10px;
+				cursor: pointer;
+			}
+
+			figure > div {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 500px;
+			}
+
+			div.yellow {
+				background-color: yellow;
+			}
+
+			div.red {
+				background-color: red;
+			}
+
+			div.blue {
+				background-color: blue;
+			}
+
+			div.orange {
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Do NOT change anything in <body> -->
+		<nav>
+			<div class="yellow" id="yellow"></div>
+			<div class="red" id="red"></div>
+			<div class="blue" id="blue"></div>
+			<div class="orange" id="orange"></div>
+		</nav>
+		<figure style="position: relative;">
+			<div class="yellow" id="yellowPic"></div>
+			<div class="red" id="redPic"></div>
+			<div class="blue" id="bluePic"></div>
+			<div class="orange" id="orangePic"></div>
+		</figure>
+	</body>
+</html>
