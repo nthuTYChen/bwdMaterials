@@ -3,31 +3,63 @@
 	<head>
 		<title>Example 11-1</title>
 		<meta charset="utf-8">
+		<!-- Always import your jQuery plug-in BEFORE all your JS codes that are dependent on jQuery
+		-->
 		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 		<script>
 			window.onload = function () {
+
+				// Getting some HTML elements using the standard JS functions
+				// as we have done before.
 				let lastP = document.getElementById('last');
 				let specialPs = document.getElementsByClassName('special');
 				let childPs = document.querySelectorAll('p > p');
 
-				//lastP = $('#last');
+				/* Getting HTML elements using jQuery - a simplified version of querySelectorAll.
+				   "$"" is equivalent to the entire "jQuery" object, so $('p') is identical to jQuery('p').
+				*/
+
+				// Using a selector to get all target HTML elements
+				// Get all element that has a class name "special"
 				specialPs = $('.special');
+				// Get all <p> elements that are an immediate child of another <p> element.
 				childPs = $('p > p');
 
+				/* The "search results" are also stored in an array, so of course you can still
+				   follow the "standard way" to get a specific element from the search results. */
 				//console.log(specialPs[0].innerHTML);
 
+				// But since we have already switched to jQuery, why not just do the jQuery way?
+				/* The eq() function of jQuery could be applied to a jQuery search result to identify a 
+				   specific element with a number. After identifying the element, the jQuery html()
+				   function could help get the HTML content of the element.
+				*/
 				console.log(specialPs.eq(0).html());
 
+				/* What if you need to get the HTML content of the LAST element in your search results? 
+				   Well, you have to know which number stands for the LAST position in the result array.
+				*/
+				// So, you need to get the length of the entire array.
 				let arrayLength = specialPs.length;
+				// Then, the number representing the last position would be the length minus 1. Why?
+				// Because the first position starts at 0.
 				let lastPos = arrayLength - 1;
-
+				// Then, finally you can retrieve the HTML content.
 				console.log(specialPs[lastPos].innerHTML);
-
+				// In jQuery, you can simply point to the LAST element of the search result with -1
+				// sent to the eq() function!
 				console.log(specialPs.eq(-1).html());
 
+				// If html() can get you the HTML content of a specific function, it can also change
+				// the content for you - just submit the new content to the html() function.
 				specialPs.eq(-1).html('HTML Changed!');
-				specialPs[lastPos].innerHTML = 'HTML Changed!';
 
+				/* Our "lastP" is obtained with the standard JS function getElementById. jQuery functions
+				   CANNOT be applied to any HTML element retrieved using a standard JS function. Therefore,
+				   you will see an error message saying that "lastP.eq is NOT a function", because "lastP"
+				   is not a jQuery search result, so of course "lastP" is not a jQuery object that comes
+				   with an eq() function.
+				*/
 				lastP.eq(0).html('Last Changed!');
 			};
 		</script>

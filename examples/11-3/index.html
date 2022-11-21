@@ -7,11 +7,19 @@
 		<script>
 			window.onload = function () {
 				let buttons = $('button');
+				// Bind the only button to "heyOnce", which is only triggered once
+				// when the button is clicked.
 				buttons.on('click', heyOnce);
 			};
 
 			function heyOnce () {
 				alert('Hey!');
+				/* Again, "this" corresponds to whichever element that is bound to and triggers 
+				   the current function. When you put "this" into "$()", the corresponding
+				   element becomes a jQuery object, so it is possible to use off() to remove
+				   the event listener bound to the element. This is why "heyOnce" is only
+				   triggered once by the only button, since the connection is cut of immediately.
+				*/
 				$(this).off('click', heyOnce);
 			}
 		</script>

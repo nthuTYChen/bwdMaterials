@@ -7,16 +7,27 @@
 		<script>
 			window.onload = function () {
 				let buttons = $('button');
+				/* In jQuery, addEventListener could be easily replaced with on(), and 
+				   removeEventListener could be replaced with off().
+				*/
+				// A button that pops up a message once clicked.
 				buttons.eq(0).on('click', hey);
+				// Another button that stops the first button from popping up the message.
 				buttons.eq(1).on('click', dontHey);
 			};
 
+			// A function bound to the first button to pop up the message.
 			function hey () {
 				alert('Hey!');
 			}
 
+			// A function bound to the second button to stop the popping-up action
+			// of the first button.
 			function dontHey () {
+				// Get all the <button> elements from the HTML document.
 				let buttons = $('button');
+				// Use the jQuery function off() to cut off the connection between
+				// the first button, a clicking event, and the function "hey".
 				buttons.eq(0).off('click', hey);
 			}
 		</script>

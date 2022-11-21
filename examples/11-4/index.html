@@ -5,32 +5,51 @@
 		<meta charset="utf-8">
 		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 		<script>
-			var newDIVStyle = {
-				'width': '100px',
-				'height': '100px',
-				'background-color': 'purple'
-			};
-
 			window.onload = function () {
 				let buttons = $('button');
+				// The first button changes the background color for only the first <div element
 				buttons.eq(0).on('click', changeFirstDIV);
+				// The second button changes all the three <div> elements
 				buttons.eq(1).on('click', changeAllDIVs);
+				// The third button makes all the three <div> elements bigger
 				buttons.eq(2).on('click', makeDIVsBigger);
 			};
 
 			function changeFirstDIV () {
+				/* Once an element is retrieved using jQuery, we can use the jQuery css()
+				   function to change a specific CSS setting. It takes two values: The first one
+				   is a string that specifies the name of the setting, and the second one is the
+				   new value of the setting.
+				*/
 				$('div').eq(0).css('background-color', 'red');
 			}
 
 			function changeAllDIVs () {
 				let divs = $('div');
+				/* If we want to change some CSS settings for EACH of the
+				   retreived HTML elements with standard JS, we would rely on
+				   a "for loop".
+				 */
 				//for(let i=0 ; i<divs.length ; i++) {
 				//	divs.eq(i).css('background-color', 'red');
 				//}
+				/* With jQuery, it becomes unnecessary - you can skip eq() and use css()
+				   directly, as it means to apply css() to EACH of the retrieved HTML elements.
+				*/
 				divs.css('background-color', 'red');
 			}
 
 			function makeDIVsBigger () {
+				/* It is also possible to change MULTIPLE CSS settings with css(), too.
+				   You just need to define your new CSS style as an object in JS and send it to
+				   css(). Note the difference between the syntax of JS object and that of true a 
+				   CSS setting.
+				*/
+				let newDIVStyle = {
+					'width': '100px',
+					'height': '100px',
+					'background-color': 'purple'
+				};
 				let divs = $('div');
 				divs.css(newDIVStyle);
 			}
