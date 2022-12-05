@@ -4,6 +4,19 @@
 		<title>Example 13-3</title>
 		<meta charset="utf-8">
 		<style>
+			/* This example works on a CSS design the hides the texts of an element by
+			   reducing the width (or height) of the element with an animation that
+			   shows the texts by restoring the full width (or height) of the element.
+			   Why is this necessary, you ask, if we can set "opacity" to zero and also
+			   hide the entire element and its texts? The reason is that even if you
+			   set opacity to zero, the element does not disappear; it only becomes
+			   fully transparent and could still block the contents under it. Thus,
+			   to hide/show one element and its text completely, it is better to
+			   adjust the width (or height) of the element. And to achieve this, we
+			   need to use the CSS "overflow" and "white-space" properties.
+			*/
+
+			/* For the first sample DIV  */
 			div:first-of-type {
 				width: 100px;
 				background-color: red;
@@ -12,24 +25,47 @@
 				transition: all 0.3s linear;
 			}
 
+
+			/* Common CSS settings for all <div> elements */
 			div {
+				/* Add top/bottom margins so every two <div> elements are separated 
+				   by a vertical gap.
+				*/
 				margin: 20px 0;
 				background-color: red;
 				color: black;
 			}
 
+			/* The second <div> is set to only have a width of 100px, which is not
+			   enough for all the texts to appear in the same line. The "long" word
+			   goes beyond the boundary, and the <div> becomes taller because
+			   words are pushed to the second and even the third line.
+			 */
 			div:nth-of-type(2) {
 				width: 100px;
 			}
 
+			/* With a slightly longer width, there are only two lines in the third <div>
+			   , but it is still not very satisfying.
+			 */
 			div:nth-of-type(3) {
 				width: 250px;
 			}
 
+			/* With 350px, finally all the words could be presented in one single line in
+			   the fourth <div>. Without additional settings, the second to the fourth <div>
+			   simulate the gradual expansion of the long texts in a small block, and 
+			   visually it is far from perfect, because we don't need any change in the height
+			   of the <div> in the expansion process, and we want no texts going beyond the
+			   <div> at any given point.
+			 */
 			div:nth-of-type(4) {
 				width: 350px;
 			}
 
+			/* The fifth <div> simulates the animated version of the above process when the mouse 
+			   moves across the <div>. 
+			*/
 			div:nth-of-type(5) {
 				width: 10px;
 			}
@@ -39,12 +75,26 @@
 				transition: all 5s linear;
 			}
 
+			/* To make things work, let's add "overflow" and "white-space" properties
+			   to the sixth <div>
+			 */
 			div:nth-of-type(6) {
 				width: 100px;
+				/* As we set "overflow-x" to be hidden, the first change is that the texts 
+				   that go beyond (i.e., overflow) the right edge of the block simply disappear.
+				*/
 				overflow-x: hidden;
+				/* The "white-space" control how texts are arranged when there are white spaces.
+				   When we set it to "nowrap", it means that the whole texts are presented in a
+				   single line, and texts won't break into multiple lines even when a white space
+				   meets the edge of an element.
+				*/
 				white-space: nowrap;
 			}
 
+			/* The seventh <div> demonstrates the animated version that gradually expands 
+			   the hidden texts as the width increases when the mouse enters it.
+			 */
 			div:nth-of-type(7) {
 				width: 10px;
 				overflow-x: hidden;

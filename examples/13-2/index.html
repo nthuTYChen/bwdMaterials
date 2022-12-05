@@ -5,28 +5,18 @@
 		<meta charset="utf-8">
 		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 		<script>
+			// Refer to Example 11-5 for original annotations on JS codes.
 			window.onload = function () {
 				let divs = $('div');
 				divs.on('click', rotateDIV);
 			};
 
 			function rotateDIV () {
-				/* Use the jQuery function addClass() to add a class name 
-				   to whichever element that triggers rotateDIV.
-				*/
 				$(this).addClass('clicked');
 			}
 		</script>
 		<style>
-			/* A different and convenient way of changing the presentation of 
-			   an HTML element is to define different CSS settings that could be 
-			   applied when different labels are assigned. In the CSS settings below,
-			   I have the settings for a regular <div> element as well as its immediate
-			   child <span>. Then, I also have a special setting for a <span> element
-			   that is an immediate child of a <div> element with a class name "clicked".
-			   Then, when I add the class name "clicked" to the <div> element, the special
-			   setting will apply to <span>.
-			  */
+			/* Refer to Example 11-5 for original annotations on original CSS settings. */
 			div {
 				width: 100px;
 				height: 100px;
@@ -40,20 +30,20 @@
 			}
 
 			div > span {
-				/* Need to set <span> to be an "inline-block" element, so transformation
-				   could apply to it. Regular inline elements like <span>, <b>, <a>, etc.
-				   cannot be transformed.
-				*/
 				display: inline-block;
 				background-color: red;
+				/* Add the transition settings could make the change from "x" to "+" gradual
+				   when the class name "clicked" is removed from the <div> (this function
+				   is not available in this example - try it yourself!).
+				*/
 				transition: all 0.3s linear;
 			}
 
 			div.clicked > span {
-				/* As an immediate child of a <div> with a class name "clicked",
-				   the <span> element rotates clockwise by 45 degrees.
-				 */
 				transform: rotate(45deg);
+				/* Add the transition settings so the change from "+" to "x" inside <span></span>
+				   in <div> becomes gradual when the <div> is labeled as the "clicked" class.
+				*/
 				transition: all 0.5s linear;
 			}
 		</style>

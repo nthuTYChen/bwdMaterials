@@ -8,33 +8,58 @@
 				height: 50px;
 				width: 100px;
 				background-color: red;
+				/* The "animation" property works very similar to the "transition" 
+				   property: The first value is the name of the animation created
+				   with @keyframes below, the second value is the length of the
+				   animation in seconds, and the third value is the type of change.
+				   Two additional values could be specified: The fourth one is the
+				   number of cycles for the animation - it could be a specific
+				   number, or "infinite". The fifth value specifies how the animation
+				   is presented. "Alternate" means to run the animation forward from the
+				   beginning to the end, and the backward from the end to the beginning.
+				*/
 				animation: changeLength 1s linear infinite alternate;
 			}
 
 			div:nth-of-type(2) {
+				/* Same as above, excepted that for the second <div>, the "crazyChangeLength"
+				   animation is applied.
+				 */
 				animation: crazyChangeLength 1s linear infinite alternate;
 			}
 
+			/* Every animation starts with the keyword "@keyframes", which is followed by
+			   the name of the animation, which is "changeLength" in this case.
+			 */
 			@keyframes changeLength {
+				/* "from" means the beginning of the animation */
 				from {
 					width: 100px;
 				}
+				/* "to" means the end of the animation */
 				to {
 					width: 500px;
 				}
 			}
 
 			@keyframes crazyChangeLength {
+				/* You can also use "%" to specify a specific "frame" in
+				   the animation to have some frame-by-frame settings.
+				   Now you get the idea of "keyframes", right?
+				*/
+				/* 0% = beginning of the animation */
 				0% {
 					width: 100px;
 				}
 				10% {
+					/* You can have different CSS settings for different frames */
 					background-color: black;
 					width: 150px;
 				}
 				70% {
 					width: 50px;
 				}
+				/* 100% = end of the animation */
 				100% {
 					background-color: green;
 					width: 500px;

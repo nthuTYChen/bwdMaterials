@@ -18,28 +18,54 @@
 			body {
 				min-height: 100%;
 				width: 100%;
+				/* Add a padding of 10% of the viewport width to both sides of <body>,
+				   so the contents are placed in the rest of the 80% of the viewport width
+				   at the center of <body>.
+				 */
 				padding: 0 10vw;
 				overflow-x: hidden;
 			}
 
 			body > div {
+				/* Arrange all <div> elements like inline elements while maintaining the flexibility
+				   on adjusting the height and the width.
+				 */
 				display: inline-block;
+				/* There are three <div>, so each is set to have 1/3 of the 80% of the viewport width. */
 				width: 33.33333%;
 				height: 10vh;
 				font-size: 120%;
 				font-family: sans-serif;
 				color: white;
+				/* Make all <div> half transparent by default (0.7 = 70% of opacity) */
 				opacity: 0.7;
+				/* The "transition" property makes changes in CSS settings gradual following the 
+				   specified value: The first value is the name of the changed property, the
+				   second value is the length of the transition in seconds, and the third value
+				   is the type of change speed (linear = the speed of change is constant in
+				   the transition). If there are multiple transitions, separate every two transitions
+				   with a comma.
+				*/
 				/* transition: height 0.3s linear, opacity 0.5s linear; */
+				/* Or, you can apply the same transition settings to "all" the changes. You need to have
+				   the transition settings here, because when the mouse leaves a <div>, these CSS settings
+				   apply to change the <div> back to its default appearance, and these transition settings
+				   also make the change gradual.
+				*/
 				transition: all 0.3s linear;
 			}
 
 			body > div:hover {
+				/* When the mouse enters a <div>, the height grows to be 100% of the viewport height,
+				   and the <div> becomes fully opaque.
+				 */
 				height: 100vh;
 				opacity: 1;
 				/* transition: height 1s linear, opacity 2s linear; */
-				/* transition: all 1s linear; */
-				transition: all 1s ease-out;
+				/* These transition settings apply with the hovering effect to make the height and
+				   opacity changes gradual.
+				 */
+				transition: all 1s linear;
 			}
 		</style>
 	</head>
