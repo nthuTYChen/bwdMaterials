@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en-us">
 	<head>
-		<title>Example 14-4</title>
+		<title>Example 14-5</title>
 		<meta charset="utf-8">
 		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 		<script>
+			var menuOpen = false;
 			window.onload = function () {
 				// Bind the clicking event to the first <a> of the menu
 				$('nav > a:first-of-type').on('click', function () {
@@ -23,7 +24,14 @@
 						   this example to Example 12-2, in which the same effect was
 						   done with setTimeout(), but the codes are more complicated.
 						 */
-						$(this).delay(index * 500).fadeToggle();
+						if(menuOpen) {
+							$(this).delay(1000 / (index + 1)).fadeToggle();
+							menuOpen = false;
+						}
+						else {
+							$(this).delay(index * 500).fadeToggle();
+							menuOpen = true;
+						}
 					});
 				});
 			};

@@ -6,20 +6,41 @@
 		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 		<script>
 			window.onload = function () {
+				// Bind the clicking event to only the first <a> in <nav>
 				$('nav > a:first-of-type').on('click', function () {
+					// Get all the menu items (non-first <a> in <nav>)
 					let menuItems = $('nav > a:not(:first-of-type)');
+
+					// Change all menu items to be fully opaque and then hide them.
+					// By default, the length of the animation is 400ms.
+					// The opposite of fadeOut() is fadeIn().
 					//menuItems.fadeOut();
+
+					// Fast = 200ms
 					//menuItems.fadeOut('fast');
+
+					// Or specify a specific length in ms.
 					//menuItems.fadeOut(2000);
 
+					/* fadeToggle() is very convenient - when target items 
+					   are hidden, it makes the items fully opaque to show them,
+					   and when they are displayed, it makes them fully transparent
+					   to hide them. Thus, you only need one function to show/hide
+					   something.
+					*/
 					//menuItems.fadeToggle();
 
+					// hide() make things disapeear by shrinking. The opposite is show()
 					//menuItems.hide(2000);
+
+					// toggle() is similar to fadeToggle(), except that it hides/shows
+					// an element by shrinking/expanding it.
 					menuItems.toggle(2000);
 				});
 			};
 		</script>
 		<style>
+			/* Check previous progress examples for how the menu is styled */
 			nav > a {
 				padding: 2px 10px;
 				background-color: darkgray;

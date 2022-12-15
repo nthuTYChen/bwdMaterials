@@ -5,12 +5,25 @@
 		<meta charset="utf-8">
 		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 		<script>
+			// Use a variable as a counter to decide which <span> element
+			// to "light up". 0 = first <span>
 			let index = 0;
 			window.onload = function () {
+				// Bind the button to a clicking event.
 				$('p > button').on('click', function () {
+					// When the button is clicked, add the class name "lightUp"
+					// to a <span> element, depending on the index number.
 					$('body > span').eq(index).addClass('lightUp');
+					// Increase the index number by 1, so the next <span> item
+					// is lighted up when the button is clicked in the very next time.
+
+					// The old index number + 1 and assigned to "index" again
 					// index = index + 1;
+
+					// A simplified version of the above statement
 					// index += 1;
+
+					// The simplest version
 					index++;
 				});
 			};
@@ -21,7 +34,13 @@
 			}
 
 			span {
+				/* Turn all span elements into an inline-block element
+				   for two reasons: 1. We can change the width and the
+				   height of the element, and 2. We can still align
+				   these elements to the center of the viewport.
+				 */
 				display: inline-block;
+				/* Separate every spans from each other with a margin */
 				margin: 10px;
 				width: 60px;
 				height: 60px;
@@ -30,16 +49,26 @@
 				font-family: sans-serif;
 				font-size: 50px;
 				line-height: 60px;
+				/* Make all span elements fully transparent by default. */
 				opacity: 0;
-				/* animation: swingChangeBgColor 3s linear infinite alternate; */
 			}
 
+			/* When the class name "lightUp" is added to a span,
+			   these CSS settings apply.
+			*/
 			span.lightUp {
+				/* Change opacity to 1 (fully opaque) */
 				opacity: 1;
+				/* Apply the gradual opacity transition. */
 				transition: opacity 0.5s ease-out;
+				/* Add the customized animation */
 				animation: swingChangeBgColor 3s linear infinite alternate;
 			}
 
+			/* An animation that changes the background color (red->green->red) of each span
+			   and rotate each span (10 degree counter-clockwise -> 0 degree ->
+			   10 degree clockwise)
+			 */
 			@keyframes swingChangeBgColor {
 				0% {
 					background-color: red;
@@ -59,6 +88,7 @@
 		</style>
 	</head>
 	<body>
+		<!-- One letter in each span: Merry Christmas! -->
 		<span>M</span>
 		<span>e</span>
 		<span>r</span>
@@ -75,6 +105,7 @@
 		<span>s</span>
 		<span>!</span>
 		<p>
+			<!-- A button that "lights up" each span one by one -->
 			<button>Light Up!</button>
 		</p>
 	</body>
