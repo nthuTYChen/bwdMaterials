@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
+			/* Common CSS settings for both copies of the menu */
 			nav {
 				background-color: red;
 				color: white;
@@ -18,19 +19,37 @@
 				line-height: 5vh;
 			}
 
+			/* The mobile-first strategy: Desktop menu is hidden by default. */
 			nav#desktopMenu {
 				display: none;
 			}
 
+			/* The desktop menu is hidden, but we can still define its child
+			   <div>s to have "display" of "inline-block", so in the desktop
+			   menu, all <div>s can be aligned in the same ROW.
+			 */
 			nav#desktopMenu > div {
 				display: inline-block;
 			}
 
+			/* Applies in desktop browsers, when the viewport width is 
+			   commonly wider then 1200 pixels.
+			 */
 			@media only screen and (min-width: 1200px) {
+				/* Show the desktop menu by changing its "display" to "block",
+				   the default display setting of a <nav> element.
+				*/
 				nav#desktopMenu {
 					display: block;
 				}
 
+				/* Hide the mobile menu in desktop browsers. Note that I didn't
+				   specify the default display setting of "block" for the mobile menu 
+				   above, because by default, all <nav>s are set to have a display
+				   setting of "block" in every browser. That is, when this media query 
+				   doesn't apply to hide the mobile menu, the mobile menu naturally has a 
+				   display of "block".
+				 */
 				nav#mobileMenu {
 					display: none;
 				}
@@ -38,6 +57,13 @@
 		</style>
 	</head>
 	<body>
+		<!-- How to have a different menu design in desktop and 
+			 mobile browser? This example demonstrates the first
+			 solution, that is, to have two copies of the same
+			 menu specified with a different ID, and then use
+			 separate CSS settings to style each copy. Then, we
+			 present a different menu based on the viewport width.
+		-->
 		<nav id="desktopMenu">
 			<div>Menu</div>
 			<div>Item 1</div>
@@ -48,5 +74,9 @@
 			<div>Item 1</div>
 			<div>Item 2</div>
 		</nav>
+		<!-- Note that this approach has to be used with caution - you 
+			 certainly don't want to have two copies of everything in
+			 your website. That will be a bad Web design practice.
+		-->
 	</body>
 </html>

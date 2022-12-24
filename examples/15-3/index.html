@@ -5,11 +5,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
+			/* Mobile-first strategy: Default settings are for mobile browsers */
 			body {
 				background-color: blue;
 			}
 
 			nav {
+				/* No need to define the width of <nav>, since a block element
+				   has a 100% of width of its parent element (<body> in this case)
+				   by default.
+				 */
 				background-color: red;
 				color: white;
 				font-family: sans-serif;
@@ -17,28 +22,65 @@
 
 			nav > div {
 				height: 5vh;
+				/* Set all menu items to be displayed with "inline-block", so
+				   all <div>s in <nav> could be aligned in the same row.
+				 */
 				display: inline-block;
 				padding: 2px 10px;
 				line-height: 5vh;
 			}
 
 			article {
+				/* No need to define the width of <article>, since a block element
+				   has a 100% of width of its parent element (<body> in this case)
+				   by default.
+				 */
 				background-color: orange;
 				color: white;
 			}
 
+			/* A media query for desktop browsers */
 			@media only screen and (min-width: 1200px) {
 				nav {
+					/* Set the reference edges to be the edges of the closest
+					   ancestor with a non-default display setting, or the edges 
+					   of the top-level ancestor (i.e., <body>)
+					 */
 					position: absolute;
+					/* Set the width of <nav> to be just 10% of the parent 
+					   (<body>) width
+					*/
 					width: 10%;
+					/* Move <nav> to a new position where the left edge of <nav>
+					   is distant from the left edge of <body>, and the gap is 20%
+					   of the width of the parent element (i.e., <body>).
+					 */
 					left: 20%;
 				}
 
 				nav > div {
+					/* Change the display property of all menu items back to 
+					   the default value of <div> elements, "block", so each <div>
+					   takes the full width of its parent <nav> (i.e., 10% of <body>)
+					   and is aligned vertically inside <nav>.
+					 */
 					display: block;
 				}
 
 				article {
+					/* Change the width of <article> to be 60% of the parent element
+					   <body>, and add a margin between the left edge of <article> and 
+					   the element on the left, which is the left edge of <body>. Note 
+					   that <nav> is not the element on the left side of <article> when
+					   this media query applies, since <nav> has an absolute position and
+					   is already taken out of the original HTML structure.
+
+					   We add a left-margin of 30% of the <body> width because we need to 
+					   allow <nav> to be placed right next to <article>: <nav> has been 
+					   moved to a new position where its left edge is away from the left 
+					   edge of <body> by 20% of the <body> width, and <nav> itself has a 
+					   width of 10% of the <body> width.
+					 */
 					width: 60%;
 					margin-left: 30%;
 				}
@@ -46,6 +88,18 @@
 		</style>
 	</head>
 	<body>
+		<!-- In this example, we don't have two copies of the menu. Instead,
+			 we only have one copy, and we "transform" the menu in different
+			 contexts based on a well-defined media query.
+		-->
+		<!-- Desktop layout: The <nav> and <article> elements are aligned
+			 "horizontally" (<nav> is on the left side of <article>), and
+			 the menu items are aligned "vertically" in a column.
+		-->
+		<!-- Mobile layout: The <nav> and <article> elements are aligned
+			 "vertically" (<nav> is above <article>), and the menu items are
+			 aligned "horizontally" in a row.
+		-->
 		<nav>
 			<div>Menu</div>
 			<div>Item 1</div>

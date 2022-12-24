@@ -22,13 +22,33 @@
 			}
 
 			article {
+				/* I expand the height of <article> on purpose to
+				   demonstrate different types of alignments in
+				   a flex-box.
+				 */
 				height: 200vh;
+				/* We turn the "container" into a flex-box by setting
+				   the display property to "flex", so its child elements
+				   could be arragned with flex-box settings.
+				*/
 				display: flex;
+				/* We decide the alignment direction of flex-box elements
+				   with is "column". In this case, we don't have to set
+				   the width of each flex-box elements because they take
+				   the full width by default, just like block elements.
+				 */
 				flex-direction: column;
+				/* In a flex-box, you can use "gap" to insert some space
+				   between every two elements in a column (or a row).
+				*/
 				gap: 2vh;
 				background-color: orange;
 			}
 
+			/* No need to add any specific flex-box setting here - all
+			   <section>s are turned automatically into flex-box elements 
+			   in a flex-box container.
+			 */
 			article > section {
 				background-color: red;
 				color: white;
@@ -40,24 +60,67 @@
 				margin: 2vh 0;
 			}
 
+			/* Desktop browser settings */
 			@media only screen and (min-width: 1200px) {
 				article {
+					/* Change the alignment direction from column to row. */
 					flex-direction: row;
+					/* When you set flex-wrap to "wrap", flex-box elements
+					   are moved to a new line when the space is not enough,
+					   rather than squeezed into the same line whatsoever.
+					   This setting is only meaningful when you set a fixed
+					   width for flex-box elements (see below). If flex-box
+					   elements do not have a fixed width, all elements are
+					   still squeezed into the same line despite the wrap
+					   setting.
+					 */
 					flex-wrap: wrap;
+					/* "align-items" decides how flex-box items are aligned in
+					   the container. "flex-start" means the beginning of the
+					   container, "center" means right at the middle of the
+					   container. A special setting would be "stretch", which
+					   means each item is stretched to evenly occupy the empty
+					   space.
+					 */
 					align-items: flex-start;
+					/* "align-content" decides how each line in the container
+					   is aligned. The available values are pretty much the same
+					   as those for "align-item".
+					 */
 					align-content: flex-start;
 					/* align-content: center; */
 					/* align-content: flex-end; */
+					/* "justify-content" determines how items are aligned "within"
+					   each line. "space-around" means to have an even space between
+					   every two items, while having only half as much space between
+					   an item and the edge of a container. "space-evenly" means to
+					   have the same space between items and between items and the
+					   edges of the container. "center" simply means to gather all
+					   items in the middle of the line without any space in between.
+					*/
 					justify-content: space-around;
-
 				}
 
+				/* Set a fixed width for flex-box items for the "flex-wrap" setting
+				   to be effective. See above.
+				*/
 				article > section {
 					max-width: 40%;
 				}
 			}
 		</style>
 	</head>
+	<!-- In this example, we will see how "flex-box" is very useful in 
+		 Responsive Web Design. In the HTML structure below, we have four
+		 <section>s in the <article> that include a short paragraph of a
+		 news. By default in mobile browsers, we need the <sections>s to
+		 be aligned vertically in a column, so the contents could take 
+		 advantage of the full viewport width to present all the texts.
+		 In a media query that applies in desktop browsers, we will use
+		 flex-box settings to demonstrate how to align the <sections>
+		 by rows and how easy it is to apply different alignment settings
+		 to elements in a flex-box.
+	-->
 	<body>
 		<h1>News</h1>
 		<article>

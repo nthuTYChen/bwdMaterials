@@ -3,14 +3,36 @@
 	<head>
 		<title>Example 15-1</title>
 		<meta charset="utf-8">
+		<!-- You always need this line to tell the browser (mobile ones, to
+			 be specific) to use their original viewport size, rather than
+			 use a "virtual viewport" and shrink everything when a webpage
+			 is not designed for mobile devices and is thus wider than the
+			 original viewport. This is the first step to "Responsive Web
+			 Design", since your want your webpage to "respond" to different
+			 original viewport size and apply different CSS settings.
+		-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
+			/* The default CSS settings for the webpage */
 			body {
 				background-color: red;
 				font-size: 24px;
 			}
 
+			/* A "media query" that only applies to the "screen" viewport 
+			   size, when the minimal screen viewport is 1400 pixels or wider,
+			   which is usually the viewport width for desktop computers and laptops. 
+			   In other words, the default CSS settings above only apply when the viewport 
+			   width is 1399 pixels or narrower, which is usually the viewport width
+			   for mobile devices. The strategy of having the default settings for
+			   mobile devices is called the "mobile-first" strategy, which has the top
+			   prioity given the huge user base of mobile devices.
+			*/
 			@media only screen and (min-width: 1400px) {
+				/* You don't have to repeat CSS settings that do not
+				   change in a media query, such as the font size in
+				   this example.
+				 */
 				body {
 					background-color: blue;
 				}
