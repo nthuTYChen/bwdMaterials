@@ -3,8 +3,30 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>2-3: Global, Local, Inline</title>
+		<!-- Global styling method
+     		This <link> element connects the current HTML page to an external CSS file.
+
+    		Structure:
+     		- <link>: a void element used to reference an external resource.
+     		- rel="stylesheet": tells the browser that the linked file is a stylesheet.
+     		- href="style.css": gives the path to the CSS file to load.
+
+     		Why this is called global styling:
+     		- The external file can be shared by multiple HTML pages.
+     		- This makes it useful for site-wide design, such as common fonts,
+       			colors, layout rules, navigation styling, and repeated components.
+     		- Instead of rewriting the same CSS on every page, you define it once
+       			in style.css and reuse it across the whole website. -->
 		<link rel="stylesheet" href="style.css">
 		<style>
+			/* Local styling method
+	   			The <style> element contains internal CSS written directly inside
+	   			this specific HTML document.
+
+	   			Why this is called local styling:
+	   				- These rules apply only to the current page.
+	   				- They are useful for page-specific customization that should not affect
+	     			the rest of the website.*/
 			section {
 				background-color: orange;
 			}
@@ -14,6 +36,13 @@
 		<article>
 			<h1>HTML for Dummies: Learn the Web’s Building Blocks the Easy Way</h1>
 			<section>
+				<!-- Inline styling method
+					Add the "style" attribute to a specific element that is styled differently from
+					other elements on the same page (see the <em> element below). While this method
+					is seemingly convenient (because you can style every element however you like),
+					you should try to avoid inline styling. Build a good structure for your webpage,
+					and use as many generic styles as possible to keep things simple.
+				-->
 				<h2>The Big Idea: HTML Gives Web Pages Structure</h2>
 				HTML is the web’s basic organizing system. It doesn’t “program” complex behavior; instead, it tells a browser what each piece of content <em style="background-color: yellow;">means</em>. A page title is different from a normal sentence, and a list of steps is different from a random group of lines. HTML provides that structure so your content appears in a readable, predictable way. If you remember only one thing, make it this: <b>HTML is about meaning and structure, not decoration.</b> Once your page is structured clearly, you can worry about colors, fonts, and layout later.
 			</section>

@@ -4,14 +4,65 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>2-2: Font Practice</title>
 		<style>
+			/* When you go to Google Fonts, choose the fonts that you like, select "Get Fonts",
+			   and click on the "@import" method, you can get this one single line of importing
+			   the fonts from Google Fonts. Here two fonts are imported: Playfair Display (serif)
+			   and Roboto (sans-serif). */
 			@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 			body {
 				font-family: Playfair Display, serif;
+				/* Selector: body
+	   				Targets the entire <body> element.
+
+	   				Property: font-family
+	   				Sets the preferred typeface for text inside the body.
+
+	   				Ordered values in font-family:
+	   				1. Playfair Display
+	      				First-choice font. If successfully imported and available,
+	      				the browser uses this font.
+	   				2. serif
+	      				Generic fallback family. If "Playfair Display" cannot be loaded,
+	      				the browser uses its default serif font.
+
+	   				Important note on naming:
+	   					- Because "Playfair Display" contains a space, it is usually safer
+	     				to write it in quotes:
+	     				"Playfair Display", serif;
+
+	   				Cascading / inheritance:
+	   					- font-family is an inherited property.
+	   					- That means most text elements inside <body> will inherit
+	     			Playfair Display unless a more specific rule overrides it. */
 			}
 
 			h1, h2 {
 				font-family: Roboto, sans-serif;
+				/* Selectors: h1, h2
+	   				This is a grouped selector (also called multiple selectors).
+	   				It applies the same declaration block to both <h1> and <h2> elements.
+
+	   				Meaning:
+	   				- h1 gets this style
+	   				- h2 gets this style
+
+	   				Property: font-family
+
+	   				Ordered values in font-family:
+	   					1. Roboto
+	      					First-choice font for h1 and h2.
+	   					2. sans-serif
+	      					Generic fallback if Roboto is unavailable.
+
+	   				Why multiple selectors are useful:
+	   				- They avoid repeating the same rule twice.
+
+	   				Cascading effect:
+	   				- h1 and h2 would otherwise inherit "Playfair Display" from body.
+	   				- This rule overrides that inherited value by assigning Roboto directly
+	     				to h1 and h2.
+	   				- So normal body text uses Playfair Display, while h1 and h2 use Roboto.*/
 			}
 		</style>
 	</head>

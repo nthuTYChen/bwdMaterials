@@ -6,11 +6,41 @@
 		<style>
 			/* Setting the background color for body */
 			body {
+				/* Selector: body
+	   			Targets the entire <body> element of the HTML document.
+	   			Since <body> is the main container for visible page content,
+	   			this rule affects the page background area as a whole. */
 				background-color: #780000;
+				/* Property: background-color
+	   				Value: #780000 (a dark red color)
+
+	   			Effect:
+	   				Sets the background color of the entire body element.
+
+	   			Cascading / inheritance notes:
+	   			- background-color does NOT inherit by default to child elements.
+	   			- However, because the body covers most of the page, this color
+	     			will be visible anywhere no child element paints over it.
+	   			- If a child element has its own background-color, that child’s
+	     		background will visually cover the body background in its area. */
 			}
 
 			section {
+				/* Selector: section
+	   			Targets every <section> element in the document.
+	   			*/
 				background-color: #fdf0d5;
+				/* Property: background-color
+	   				Value: #fdf0d5 (a light cream color)
+
+	   				Effect:
+	   					Gives each <section> element its own background color.
+
+	   					Cascading / specificity notes:
+	   					- This rule applies directly to <section> elements, so it overrides
+	     				the visual effect of the body background in the areas occupied
+	     				by those sections.
+	   			 */
 			}
 		</style>
 	</head>

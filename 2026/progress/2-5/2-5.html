@@ -17,7 +17,46 @@
 			}
 
 			body {
+				/* Property: font-size
+	   				Value: 2.4vh
+
+	   				Meaning of vh:
+	   					- vh stands for "viewport height".
+	   					- 1vh = 1% of the browser window’s height.
+	   					- So 2.4vh means the text size changes in relation to the height
+	     					of the screen or browser window.
+
+	   				Why relative units are important:
+	   					- Relative units help designs respond to different screen sizes.
+	   					- Unlike fixed units such as px, vh and vw scale automatically
+	     					when the viewport changes.
+	   					- This can make a layout feel more flexible and more visually balanced
+	     					across devices.
+
+	   				Why this is a reasonable body font size:
+	   					- Body text should usually be smaller than headings but still readable.
+	   					- 2.4vh creates a moderate text size that grows and shrinks with
+	     					the screen height.
+	   					- This can work well in layouts where you want typography to scale
+	     					with the visible page area.
+				*/
 				font-size: 2.4vh;
+				/* Property: line-height
+	   				Value: 3.6vh
+
+	   				Meaning:
+	   					- Sets the vertical space occupied by each line of text.
+
+	   				Why line-height matters:
+	   					- It controls readability.
+	   					- If line-height is too small, lines look cramped.
+	   					- If it is too large, the text feels disconnected.
+
+	   				Why this is a reasonable choice:
+	   					- 3.6vh is larger than the font-size of 2.4vh.
+	   					- That gives extra breathing room between lines.
+	   					- The ratio here is 3.6 / 2.4 = 1.5, which is a very common and
+	     				comfortable line-height proportion for readable text.*/
 				line-height: 3.6vh;
   				background-color: #f4f1ea;
 			}
@@ -31,7 +70,10 @@
 			}
 
 			h1 {
+				/* The font size here is twice as large as the base font size
+				   set for <body>, which is reasonable for the first-level heading. */
 				font-size: 4.8vh;
+				/* The line height remains to be 150% of the font size */
 				line-height: 7.2vh;
   				background-color: #d9e4dd;
 			}
@@ -48,22 +90,80 @@
 
 			figure {
 				text-align: center;
+				/* Property: text-align
+	   				Value: center
+
+	   				Main effect:
+	   					Centers the inline content inside the figure horizontally. 
+	   					Every <img> tag is an inline element, so its alignment can be
+	   					adjusted like text.
+	   			*/
 			}
 
 			img {
+				/* This commented-out line shows a fixed-width alternative.
+	   				200px means the image would always stay 200 pixels wide,
+	   				no matter how large or small the screen is. */
 				/* width: 200px; */
+				/* Property: width
+	   				Value: 20vw
+
+	   				Meaning of vw:
+	   				- vw stands for "viewport width".
+	   				- 1vw = 1% of the browser window’s width.
+	   				- So 20vw means the image width becomes 20% of the viewport width.
+
+	   				Why relative units are important here:
+	   				- A width in vw allows the image to scale with the screen size.
+	   				- On a large screen, the image becomes larger.
+	   				- On a small screen, it becomes smaller.
+	   				- This usually supports a more responsive layout than a fixed pixel width.
+
+	   				Comparison with 200px:
+	   				- 200px is fixed and predictable, but less flexible.
+	   				- 20vw is responsive and adapts better to different devices.*/
 				width: 20vw;
 			}
 		</style>
 	</head>
 	<body>
-		<!-- Text is from Wikipedia -->
 		<article>
+			<!-- <figure>
+	     		This element groups media content into one semantic unit.
+	     		Here, it acts as a container for three related images. -->
 			<figure>
+				<!-- <img>
+	     			Displays an image on the page.
+
+	     			Attribute: src="img/chiikawa.jpg"
+	     				- src means "source": it tells the browser where to find the image file.
+	     				- "img/chiikawa.jpg" is a relative path.
+
+	     			Explanation of the relative path:
+	     				- img/ = a folder named "img"
+	     				- chiikawa.jpg = the image file inside that folder
+
+	     			Why it is called a relative path:
+	     				- It is written relative to the location of the current HTML file.
+	     				- The browser starts from the folder containing this HTML file,
+	       				then looks for a subfolder called "img",
+	       				then looks for the file "chiikawa.jpg".
+
+	     			Example:
+	     				If the HTML file is located at
+	     					/website/index.html
+	     				then the browser looks for
+	     					/website/img/chiikawa.jpg
+
+	     			Advantage:
+	     				- Relative paths are convenient when files belong to the same project.
+	     				- They make the project portable, because the links still work
+	       				if the whole folder is moved together. -->
 				<img src="img/chiikawa.jpg" />
 				<img src="img/hachiware.jpg" />
 				<img src="img/usagi.jpg" />
 			</figure>
+			<!-- Text is from Wikipedia -->
 			<h1>Chiikawa (吉伊卡哇)</h1>
 			<section>
 				<h2>Chiikawa (ちいかわ)</h2>

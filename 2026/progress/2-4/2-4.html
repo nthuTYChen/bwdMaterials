@@ -6,8 +6,33 @@
 		<style>
 			/* Resetting and base settings */
 			* {
+				/* Selector: *
+	   				This is the universal selector.
+	   				It targets every element on the page. */
 				margin: 0;
+				/* Property: margin
+	   				Removes the default outer spacing from all elements.
+
+	   				Effect:
+	   					Browsers normally give certain elements built-in margins,
+	   					such as headings, paragraphs, and the body.
+	   					Setting margin: 0; resets those defaults so spacing starts
+	   					from a controlled baseline.
+
+	   				Cascading note:
+	   					Because this applies to all elements, it creates a global reset.
+	   					Later, more specific rules can add margins back where needed. */
 				padding: 0;
+				/* Property: padding
+	   				Removes the default inner spacing from all elements.
+
+	   				Effect:
+	   					Browsers often apply default padding to elements like lists.
+	   					This rule clears that spacing so layout is more predictable.
+
+	   				Cascading note:
+	   					Like margin: 0;, this is a broad reset.
+	   					Later rules can assign custom padding to specific elements. */
 			}
 
 			html {
@@ -17,8 +42,32 @@
 
 			body {
 				min-height: 100%;
+				/* Property: min-height
+	   				Makes the body at least as tall as its parent element.
+
+	   				Since html has height: 100%, this means the body will be at least
+	   				as tall as the full browser viewport.
+
+	   				Effect:
+	   					Even if the page content is short, the body still stretches to fill
+	   					the screen vertically.*/
 				width: 100%;
+				/* Property: width
+	   				Makes the body span the full available page width.
+
+	   				Effect:
+	   				The body occupies the full horizontal space of the viewport area. */
 				overflow-x: hidden;
+				/* Property: overflow-x
+	   				Controls what happens when content extends beyond the body’s width
+	   				on the horizontal axis.
+
+	   				Value: hidden
+	   					Any content that sticks out to the left or right is clipped,
+	   					and no horizontal scrollbar is shown.
+
+	   				Effect:
+	   					Helps prevent unwanted sideways scrolling caused by, for instance, oversized elements.*/
 			}
 			/* The end of resetting and base settings */
 
