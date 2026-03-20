@@ -14,12 +14,47 @@
   			}
 
   			p > a {
-  				color: brown;
-  			}
+				/* Selects an <a> element only when it is a direct (immediate) child of a <p> element. */
 
-  			h2 > a {
-  				color: royalblue;
-  			}
+				/* Structural relation:
+	   				The > symbol is the child combinator.
+	   				It means the <a> must be immediately inside <p>, not nested deeper
+	   				inside another element. */
+
+				/* Example that matches:
+	   				<p><a href="#">Link</a></p>
+				*/
+
+				/* Example that does NOT match:
+	   				<p><span><a href="#">Link</a></span></p>
+	   				because <a> is a descendant of <p>, but not a direct child.
+				*/
+
+				/* Effect:
+	   				Links directly inside paragraphs will have brown text. */
+				color: brown;
+			}
+
+			h2 > a {
+				/* Selects an <a> element only when it is a direct (immediate) child of an <h2> element. */
+
+				/* Structural relation:
+	   				Again, > is the child combinator.
+	   				The <a> must be placed directly inside <h2>. */
+
+				/* Example that matches:
+	   				<h2><a href="#">Section Title</a></h2>
+				*/
+
+				/* Example that does NOT match:
+	   				<h2><span><a href="#">Section Title</a></span></h2>
+	   				because <a> is not the direct child of <h2>.
+				*/
+
+				/* Effect:
+	   				Links directly inside headings <h2> will have royal blue text. */
+				color: royalblue;
+			}
   		</style>
 	</head>
 	<body>

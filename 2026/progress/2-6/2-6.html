@@ -49,16 +49,50 @@
 			}
 
 			article {
-				/* margin: 0 10vw; */
+				/* Sets all margins in clockwise order: top right bottom left */
+				/* Top: 0, Right: 10vw, Bottom: 0, Left: 10vw */
 				margin: 0 10vw 0 10vw;
+
+				/* Equivalent shorter form:
+	   			margin: 0 10vw;
+	   			because top/bottom = 0 and left/right = 10vw */
 			}
 
 			h1, h2 {
+				/* Adds inner spacing inside h1 and h2 elements */
+				/* Top/bottom padding: 1vh, Left/right padding: 2vw */
 				padding: 1vh 2vw;
 			}
 
 			section {
+				/* Adds vertical outer spacing above and below each section */
+				/* Top/bottom margin: 2vh, Left/right margin: 0 */
 				margin: 2vh 0;
+
+				/* Margin collapsing note:
+	   				When multiple <section> elements are stacked vertically,
+	   				adjacent vertical margins may collapse into a single margin
+	   				instead of being added together.
+
+	   				For example:
+	   				- If one <section> has margin-bottom: 2vh
+	   				- and the next <section> has margin-top: 2vh
+	   				- the visible gap between them is usually 2vh, not 4vh.
+
+	   				In this rule, each <section> has:
+	   				- margin-top: 2vh
+	   				- margin-bottom: 2vh
+
+	   				So between two neighboring <section> elements, the touching
+	   				top and bottom margins typically collapse, producing a gap
+	   				of 2vh rather than 4vh.
+
+	   				This collapsing affects only vertical margins in normal flow.
+	   				Left and right margins do not collapse.
+				*/
+
+				/* Adds inner spacing inside each section */
+				/* Top/bottom padding: 1vh, Left/right padding: 2vw */
 				padding: 1vh 2vw;
 			}
 		</style>

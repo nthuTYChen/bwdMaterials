@@ -27,27 +27,95 @@
   				color: darkgrey;
 			}
 
+			/* Selector = element:pseudo-class */
+
+			/* All CSS rules that apply to a pseudo-class are MORE SPECIFIC than general CSS rules.
+			   Thus, the above rule that defines the background color for ALL <section> elements
+			   will be overridden by the more specific background color rules below.
+			 */
+
+			/* section:first-of-type
+				Selects the first <section> among its sibling <section> elements.
+
+				Pseudo-class:
+				- :first-of-type matches the first element of a given type
+	  				inside the same parent.
+
+				Effect:
+				- The first <section> of the same sibling group would get a gold background.
+			*/
+
 			/* section:first-of-type {
 				background-color: gold;
-			}
+			} */
 
-			section:last-of-type {
+			/* section:last-of-type 
+				Selects the last <section> among its sibling <section> elements.
+
+				Pseudo-class:
+				- :last-of-type matches the last element of that type
+	  				within the same parent.
+			*/
+			
+			/* section:last-of-type {
 				background-color: orange;
-			}
+			} */
 
-			section:nth-of-type(2) {
+			/* section:nth-of-type(2) 
+				Selects the second <section> among sibling <section> elements.
+
+				Pseudo-class:
+				- :nth-of-type(2) matches the element of that type
+	  				in position 2.
+				- Only elements of the same tag name are counted.
+			*/
+
+			/* section:nth-of-type(2) {
 				background-color: lightgreen;
 			} */
 
+			/* section:nth-of-type(even) 
+				Selects every even-numbered <section> among sibling <section> elements.
+
+				Pseudo-class:
+				- :nth-of-type(even) matches the 2nd, 4th, 6th, etc. <section>
+	  				inside the same parent.
+				- Only <section> siblings are counted, not other element types.
+
+				Effect:
+					- Every even-numbered <section> of a sibling group gets a gold background.
+				*/
 			section:nth-of-type(even) {
 				background-color: gold;
 			}
 
+			/* a, a:visited 
+				This is a grouped selector containing two selectors:
+				1. a
+				2. a:visited
+
+				Pseudo-class:
+				- :visited matches hyperlinks that the user has already visited.
+			*/
 			a, a:visited {
 				color: hotpink;
 				text-decoration: none;
 			}
 
+			/* a:hover 
+				Selects <a> elements when the mouse pointer is over them.
+
+				Pseudo-class:
+				- :hover matches an element in the hover state.
+
+				Effect:
+				- When the pointer moves over a link, its color becomes yellow.
+					Interaction with previous rule:
+				- a:hover has the same specificity as a:visited
+				- If both match at the same time, source order matters
+  					for conflicting properties. In this case, a:hover comes after a:visited,
+  					so the a:hover background color applies.
+			*/
 			a:hover {
 				color: yellow;
 			}

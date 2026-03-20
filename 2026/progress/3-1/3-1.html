@@ -37,19 +37,103 @@
 		</style>
 	</head>
 	<body>
+		<!--
+			<article> is the parent container of all five <section> elements.
+
+			Inline style:
+			position: relative;
+
+			Explanation:
+			1. This makes <article> a "positioned element".
+			2. It does not move <article> by itself, because no top/right/bottom/left values are given.
+			3. Its most important effect here is that absolutely positioned children
+			   can use the four edges of <article> as their positioning reference.
+		-->
 		<article style="position: relative;">
 			<section>
 				I'm going to stay where I am!
 			</section>
+
+			<!--
+				Inline style:
+				position: relative;
+				bottom: 10px;
+				left: 50px;
+
+				Explanation:
+				1. position: relative keeps the element in the normal document flow.
+				2. The section still occupies its original space in the layout.
+				3. left: 50px visually shifts the box 50px to the right.
+				4. bottom: 10px visually shifts the box 10px upward.
+				   (Because specifying "bottom" pushes it upward from its normal position.)
+				5. Other elements behave as if this section had not moved.
+			-->
 			<section style="position: relative; bottom: 10px; left: 50px;">
 				I will move rightward by 50px and and upward by 10px from my original position.
 			</section>
+
+			<!--
+				Inline style:
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				Explanation:
+				1. position: absolute removes this section from the normal document flow.
+				2. It no longer keeps its original place in the layout.
+				3. Its position is determined by the nearest ancestor that is positioned
+				   (that is, an ancestor whose position is relative, absolute, fixed, or sticky).
+
+				In this example:
+				- The parent <article> has position: relative.
+				- Therefore, this <section> is placed at:
+				  top: 0 and left: 0 relative to <article>.
+				- So it moves to the top-left corner of <article>.
+
+				If the parent <article> did NOT have position: relative:
+				- Then <article> would not be a positioned ancestor.
+				- This absolute element would look for another positioned ancestor higher up.
+				- If none existed, it would use the initial containing block
+				  (commonly the page/viewport area).
+				- In practice, it would appear at the top-left corner of the page
+				  rather than the top-left corner of <article>.
+
+				So the presence of position: relative on <article> changes the reference box
+				for this absolute element.
+			-->
 			<section style="position: absolute; top: 0; left: 0;">
 				I will move to the top-right corner of body, or the top-right corner of my parent element (i.e., article)!
 			</section>
+
+			<!--
+				Inline style:
+				position: fixed;
+				top: 0;
+				right: 0;
+
+				Explanation:
+				1. position: fixed removes the element from the normal document flow.
+				2. Its position is relative to the viewport, not to <article>.
+				3. top: 0 puts it at the top edge of the viewport.
+				4. right: 0 puts it at the right edge of the viewport.
+				5. It stays there even when the page scrolls.
+			-->
 			<section style="position: fixed; top: 0; right: 0;">
 				I will move to the top-right corner of the viewport and stay there, no matter how the viewport moves.
 			</section>
+
+			<!--
+				Inline style:
+				position: fixed;
+				bottom: 10px;
+				right: 0;
+
+				Explanation:
+				1. position: fixed makes the element relative to the viewport.
+				2. bottom: 10px places it 10px above the bottom edge of the viewport.
+				3. right: 0 places it against the right edge of the viewport.
+				4. It remains in that position even when the page scrolls.
+			-->
 			<section style="position: fixed; bottom: 10px; right: 0;">
 				I will move to the bottom-right corner of the viewport and stay there, with 10px from the bottom edge, no matter how the viewport moves.
 			</section>
