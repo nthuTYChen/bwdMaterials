@@ -29,6 +29,26 @@ body {
 	width: 100%;
 	min-height: 100%;
 	background-color: white;
+	/*
+		font-family lists fonts in priority order from left to right.
+
+		Here, the browser tries to use Baumans first.
+		Since Baumans is an English font, English letters such as A, B, C will usually be displayed in Baumans.
+
+		If Baumans does not contain Chinese characters, the browser cannot use it for Chinese text.
+		It then moves to the next font, Chiron GoRound TC.
+
+		Because Chiron GoRound TC supports both English and Chinese, Chinese characters will be shown in Chiron GoRound TC.
+		It can also be used for English letters if Baumans is unavailable.
+
+		Finally, sans-serif is the backup choice.
+		If neither Baumans nor Chiron GoRound TC is available, the browser will use a default sans-serif font.
+	
+		So, with this order:
+			- English alphabet: usually shown in Baumans
+			- Chinese characters: usually shown in Chiron GoRound TC
+			- If one font is missing, the browser falls back to the next one
+	*/
 	font-family: Baumans, Chiron GoRound TC, sans-serif;
 	font-size: 2.4vh;
 	line-height: 3.6vh;
@@ -40,12 +60,30 @@ nav {
 	left: 80vw;
 }
 
+
+
 nav > p {
 	padding: 10px;
 	background-color: #EAD7D7;
 	border-radius: 5px;
 	opacity: 0.7;
 }
+
+/* 
+	This second rule is applied when the mouse pointer is placed over any p element that
+	is a direct/immediate child of nav.
+
+	The hovering effect causes two changes:
+
+	1. opacity: 1;
+   		The paragraph becomes fully opaque.
+   		It no longer looks faded or transparent.
+   		As a result, it stands out more clearly when the user hovers over it.
+
+	2. cursor: pointer;
+   		The mouse cursor changes into a pointer shape.
+   		This suggests that the element is clickable or interactive.
+*/
 
 nav > p:hover {
 	opacity: 1;
@@ -69,6 +107,30 @@ article {
 }
 
 h1 {
+	/*
+		height: 10vh;
+		This gives the element a height equal to 10% of the viewport height.
+
+		font-size: 4.8vh;
+		This sets the size of the text. The letters are smaller than the full height of the element,
+		so there is extra space above and below the text.
+
+		line-height: 10vh;
+		This sets the height of each line of text to 10% of the viewport height,
+		which is exactly the same as the element's height.
+
+		Why does this make the text appear vertically centered?
+		For a single line of text, when line-height is the same as the container's height,
+		the browser places the text line inside that full line box.
+		Because the line box fills the whole height of the element, the text sits in the middle vertically.
+
+		So the key reason is:
+		the element is 10vh tall, and the line-height is also 10vh,
+		so the single line of text is given a line box as tall as the container,
+		which makes the text appear vertically centered.
+
+		This method works best for single-line text.
+	*/
 	height: 10vh;
 	background-color: #B49FCC;
 	font-family: Nabla, sans-serif;
@@ -77,13 +139,49 @@ h1 {
 }
 
 figure {
+	/* 
+		The figure element is given a total height of 40vh.
+		So the whole container is 40% of the viewport height tall.
+	*/
 	height: 40vh;
 }
 
 figure > img {
+	/*
+		The img inside figure is given a height of 20vh.
+		So the image itself takes up 20vh of the figure's total 40vh height.
+
+		The setting margin: 10vh 0; adds:
+		- 10vh of margin above the image
+		- 10vh of margin below the image
+		- 0 margin on the left and right
+
+		This means the total vertical space used by the image is:
+		10vh (top margin) + 20vh (image height) + 10vh (bottom margin) = 40vh
+		That exactly matches the height of the figure.
+
+		Because the image has equal empty space above and below it.
+		There are 10vh above and 10vh below, so the image is placed in the middle of the 40vh-tall figure.
+	*/
 	margin: 10vh 0;
 	height: 20vh;
-	border-radius: 20vh;
+	/*
+		The image is a perfect square.
+		That means its width and height are the same.
+
+		The image is 20vh tall and also 20vh wide, then half of its side length is 10vh.
+
+		When border-radius is set to 10vh, each corner is rounded by a radius equal to half of the image's width and height.
+
+		Because all four corners are rounded equally, the square no longer looks like a square with corners.
+		Instead, it becomes a circle.
+
+		So the key reason is:
+		- the image is a square
+		- 10vh is half of the square's side length
+		- a border-radius equal to half the side length turns the square into a circle
+	*/
+	border-radius: 10vh;
 }
 
 section {
@@ -95,6 +193,16 @@ section > p {
 	line-height: 12.5vh;
 }
 
+/*
+	1. The p element must be a direct/immediate child of a section element.
+   		The > symbol means direct/immediate child, so the p must be immediately inside section.
+
+	2. The p element must NOT be the last p of its type among its sibling elements.
+   		:last-of-type means a pseudo class "the last p element among siblings."
+   		:not(...) is a pseudo class that excludes "the last p element among siblings.".
+
+	So this selector matches every direct/immediate-child p inside section except the last one.
+*/
 section > p:not(:last-of-type) {
 	border-bottom: 3px dotted #EAD7D7;
 }
