@@ -1,0 +1,42 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+	<head> 
+		<title>5-4: Functions in JavaScript</title> 
+		<meta charset="UTF-8">
+		<script>
+			console.log("Hi!");
+
+			var print_msg = function() {
+				console.log("A message is printed!");
+			};
+
+			print_msg();
+
+			var print_name = function(name) {
+				let final_msg = "The name is: " + name;
+				console.log(final_msg);
+			};
+
+			print_name("Mary");
+			print_name("Tom");
+			print_name();
+
+			// console.log(final_msg);
+
+			var complexCalc = function(num1, num2) {
+				let result = 0;
+				result = num1 * num2;
+				result = result / (num1 - num2);
+				result = result * num2 - num1;
+				console.log(result);
+			};
+
+			complexCalc(20, 100);
+			complexCalc(1, 50);
+			complexCalc(1000, 10);
+		</script>
+	</head>
+	<body>
+		Nothing interesting in this section.
+	</body>
+</html>
