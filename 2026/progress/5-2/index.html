@@ -4,23 +4,50 @@
 		<title>5-2: Operations in JavaScript</title> 
 		<meta charset="UTF-8">
 		<script>
+			// Simple math operations done with operators +, -, *, /
 			var x = 5, y = 10, z = 20;
+			// Addition
 			var res_add = x + y;
 			console.log(res_add);
+			// Subtraction
 			var res_sub = z - x;
+			// Multiplication
 			var res_multi = y * z;
+			// Division
 			var res_div = x / y;
 			console.log(res_sub);
 			console.log(res_multi);
 			console.log(res_div);
+
+			// String operations with +
+			// Declare two variables:
+			// name1 stores the string "Tom"
+			// name2 stores the string "Mary"
 			var name1 = "Tom", name2 = "Mary";
+			// Combine the value of name1, a space " ", and the value of name2
 			var all_names = name1 + " " + name2;
+			// The output is the string "Tom Mary"
 			console.log(all_names);
-			var simple_name = name2 - "y"; // Is the output "Mar"?
-			console.log(simple_name);
+
+			// Try to subtract the string "y" from the value stored in name2
+			// This is problematic because the - operator is meant for numeric subtraction,
+			// not for removing letters from a string.
+			//
+			// If name2 is "Mary", JavaScript tries to interpret both operands as numbers.
+			// "Mary" is not a number, and "y" is not a number either,
+			// so the result becomes NaN ("Not a Number").
+			var simple_name = name2 - "y";
+			console.log(simple_name); // NaN
+
+			// Declare a variable named x_str and assign it the string "5"
+			// Even though it looks like a number, "5" is text because it is inside quotation marks
 			var x_str = "5";
+			// If x was previously defined as 5, then this is numeric addition: 5 + 5 = 10
 			var res_add2 = x + x;
 			console.log(res_add2);
+			// Here x is a number, but x_str is a string
+			// In JavaScript, when + is used with a string, it performs string concatenation
+			// So 5 + "5" becomes "55", not 10
 			var res_add3 = x + x_str;
 			console.log(res_add3);
 		</script>

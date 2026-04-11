@@ -4,25 +4,60 @@
 		<title>5-4: Functions in JavaScript</title> 
 		<meta charset="UTF-8">
 		<script>
+			// Print the string "Hi!" to the console: This action is always initiated.
 			console.log("Hi!");
 
+			// Declare a variable named print_msg
+			// Assign it an function, which is defined by a keyword "function" followed
+			// by a pair of parantheses (see below for the explanation of the parantheses)
+			//
+			// A function is a reusable block of code.
+			// When this function is called it prints the message "A message is printed!" to the console.
 			var print_msg = function() {
+				// Thus, unlike the first console.log() statement, this action is not
+				// always initiated. It is done only when this function is called.
 				console.log("A message is printed!");
 			};
 
+			// Call (invoke) the function stored in print_msg
+			// This executes the code inside the function body
 			print_msg();
 
+			// Declare a variable named print_name
+			// Assign it a function that takes one parameter: name
+			//
+			// A parameter is a variable that receives a value when the function is called
+			// and can only be accessed within this function.
 			var print_name = function(name) {
+				// Declare a block-scoped variable named final_msg using the keyword "let".
+				// Just like a parameter, a variable declared using "let" can only be
+				// accessed within a code block.
+				// Create a new string by joining "The name is: " with the value of name
 				let final_msg = "The name is: " + name;
+				// Print the completed message to the console
 				console.log(final_msg);
 			};
 
+			// Call the function and pass in the string "Mary" or "Tom"
 			print_name("Mary");
 			print_name("Tom");
+			// // Call the function without passing any value
+			// Since no value is given, the parameter "name" in the function is "undefined"
+			// So the output will be: The name is: undefined
 			print_name();
+
+			// Try to print the value of final_msg outside the print_name function.
+			// This causes a problem because final_msg was declared with let inside
+			// the function body, so it is only available within that function's scope.
+			// In other words, final_msg exists when the function is running,
+			// but it does not exist in the outside/global scope.
+			// Therefore, this statement will throw a ReferenceError.
 
 			// console.log(final_msg);
 
+			// Declare another variable as a function, which takes two parameters/values
+			// and do some complex calculations. Other technical details are the same as
+			// explained in the print_name function.
 			var complexCalc = function(num1, num2) {
 				let result = 0;
 				result = num1 * num2;

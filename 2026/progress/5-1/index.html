@@ -4,21 +4,49 @@
 		<title>5-1: More on JavaScript variables</title> 
 		<meta charset="UTF-8">
 		<script>
+			// Declare three variables in one single statement, in which
+			// every two declared variables are separated by a comma
+			// x is assigned 5, y is assigned 10, and z is assigned 20
 			var x = 5, y = 10, z = 20;
 			console.log(x);
 			console.log(y);
 			console.log(z);
 
+			// ReferenceError: the variable "nonexisting" is never defined
 			// console.log(nonexisting);
 
+			// Declare a variable named studentName and assign it the string "Tom"
+			// Crucially, a string must be enclosed inside a pair of (double) quotation marks.
 			var studentName = "Tom";
+
+			// Print the value of studentName to the console
 			console.log(studentName);
 
-			var studentName2 = Tom;
-			console.log(studentName2);
+			// Attempt to declare a variable named studentName2 and assign it Tom
+			// This is problematic because Tom is not in quotation marks, so JavaScript
+			// treats it as a variable name rather than a string
+			//var studentName2 = Tom;
 
+			// Attempt to print the value of studentName2 to the console
+			// The code will not reach this line if the previous line causes an error
+			//console.log(studentName2);
+
+			// Declare a variable named ಠ_ಠ and assign it the string "Raise my eyebrows"
+			// Technically, JavaScript allows many Unicode characters in variable names,
+			// so this name is valid.
 			var ಠ_ಠ = "Raise my eyebrows";
 			console.log(ಠ_ಠ);
+			//
+			// Variable naming guidelines:
+			// 1. Choose names that clearly show what the variable stores.
+			//    A name like facialExpression or reactionText is usually easier to understand.
+			// 2. Avoid unusual symbols or decorative names in most programs,
+			//    because they can confuse readers and make code harder to maintain.
+			// 3. Use a consistent naming style, such as camelCase:
+			//    studentName, totalPrice, reactionText
+			// 4. Variable names cannot start with a number, but they can start with
+			//    a letter, an underscore (_), or a dollar sign ($).
+			// 5. Do not use reserved words such as var, function, or if as variable names.
 		</script>
 	</head>
 	<body>

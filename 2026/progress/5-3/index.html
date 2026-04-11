@@ -4,18 +4,53 @@
 		<title>5-3: Objects in JavaScript</title> 
 		<meta charset="UTF-8">
 		<script>
+			// Declare a variable named "obj" and assign it an empty object
+			// defined by a pair of curly brackets {}.
+			//
 			var obj = {};
 
+			// A JavaScript object is a structure that stores related data as
+			// property-value pairs.
+			// General structure:
+			// {
+			//     propertyName1: value1,
+			//     propertyName2: value2
+			// }
+
+			// Declare a variable named "student_profile" and assign it an object
+			// This object contains three properties:
+			//
+			// name: "Josephina"
+			// - key: name
+			// - value: "Josephina" (a string)
+			//
+			// age: 20
+			// - key: age
+			// - value: 20 (a number)
+			//
+			// gender: "female"
+			// - key: gender
+			// - value: "female" (a string)
+			//
+			// Objects are useful because they let us group multiple related pieces
+			// of information together in one variable.
 			var student_profile = {
 				name: "Josephina",
 				age: 20,
 				gender: "female"
 			};
 
+			// Print the entire student_profile object to the console
+			// This lets you see all of its property-value pairs at once
 			console.log(student_profile);
+			// Print the value of a property from student_profile
+			// This uses dot notation:
+			// objectName.propertyName
 			console.log(student_profile.age);
 			console.log(student_profile.gender);
 			console.log(student_profile.height);
+			// "console" is also an object, and "log" is one of its properties, which is
+			// in fact a function (see the next demo) that prints a message in a browser console.
 		</script>
 	</head>
 	<body>
