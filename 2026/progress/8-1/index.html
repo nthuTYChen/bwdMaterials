@@ -4,34 +4,68 @@
 		<title>8-1: Functions that return the data</title> 
 		<meta charset="UTF-8">
 		<script>
+			// Declare a variable named complexCalc
+			// Assign it a function that takes two parameters: num1 and num2
 			var complexCalc = function(num1, num2) {
+				// Declare a block-scoped variable named result
+				// Give it an initial value of 0
 				let result = 0;
 				result = num1 * num2;
 				result = result / num1;
 				result = result + num2;
 				// console.log(result);
+				// Return the final value of result
+				//
+				// The action of "return" means:
+				// 1. the function sends a value back to the place where it was called
+				// 2. the function stops running immediately at this point
+				// 3. that returned value can be stored in a variable, printed,
+				//    or used in another expression
+				//
+				// For example, if the function is called as complexCalc(4, 3):
+				// result = 4 * 3  -> 12
+				// result = 12 / 4 -> 3
+				// result = 3 + 3  -> 6
+				// so the function returns 6
 				return result;
 			};
 
+						
+			// Make a function called printRes
+			// It takes one value: result			
 			var printRes = function(result) {
+				// Make a message with the result
 				let finalMsg = "The result of the complex calculation is: " + result;
+				// Print the message
 				console.log(finalMsg);
 			};
 
+			// Run complexCalc with 5 and 10
+			// Save the returned value in calc_res
 			var calc_res = complexCalc(5, 10);
-			// console.log(calc_res);
+			// Give calc_res to printRes
+			// printRes will print the result message
 			printRes(calc_res);
 
+			// Make an object called profile
 			var profile = {
 				name: "TYC",
 				age: 40,
+				// Store a function to the key called "getName"
 				getName: function() {
+					// "this" means the object that is using this function
+					// Here, "this" refers to "profile"
+					// So this.name = profile.name
 					return this.name;
 				}
 			};
 
+			// Call the getName function in the profile object
+			// The function returns profile.name
+			// Save that returned value in profile_name
 			var profile_name = profile.getName();
 			console.log(profile_name);
+			// profile.getName() is similar to console.log() because both use the same basic object-dot-function structure
 		</script>
 	</head>
 	<body>
