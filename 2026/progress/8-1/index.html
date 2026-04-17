@@ -1,0 +1,40 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+	<head> 
+		<title>8-1: Functions that return the data</title> 
+		<meta charset="UTF-8">
+		<script>
+			var complexCalc = function(num1, num2) {
+				let result = 0;
+				result = num1 * num2;
+				result = result / num1;
+				result = result + num2;
+				// console.log(result);
+				return result;
+			};
+
+			var printRes = function(result) {
+				let finalMsg = "The result of the complex calculation is: " + result;
+				console.log(finalMsg);
+			};
+
+			var calc_res = complexCalc(5, 10);
+			// console.log(calc_res);
+			printRes(calc_res);
+
+			var profile = {
+				name: "TYC",
+				age: 40,
+				getName: function() {
+					return this.name;
+				}
+			};
+
+			var profile_name = profile.getName();
+			console.log(profile_name);
+		</script>
+	</head>
+	<body>
+		Nothing interesting in this section.
+	</body>
+</html>
