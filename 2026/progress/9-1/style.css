@@ -213,6 +213,9 @@ section > p > a, section > p > a:visited, article#bio > p > a, article#bio > p >
 }
 
 article#bio {
+	/* The crucial trick here is to hide the <article> element with the biography by default,
+	   which can be done by setting "display" to "none".
+	 */
 	display: none;
 	position: fixed;
 	top: 0;

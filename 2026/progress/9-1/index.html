@@ -22,11 +22,27 @@
 				<p>Height: As tall as four bunny ears</p>
 				<p>Certificate: Level 2 Weeding</p>
 				<p>Address: Not available</p>
+				<!-- This is new from Demo 4-1, a <p> element including a hyperlink <a> to show the bio window (see below).
+		 		-->
 				<p>
+					<!-- Make a hyperlink (<a> element) with the text [Click here for my Bio] -->
+					<!-- The href attribute tells the link where to go when it is clicked -->
+					<!-- Here, href="#" points to the top of the current page (or to a page fragment) -->
+					<!-- So by itself, this link does not go to a different website -->
+					<!--
+  						This kind of href is often used as a placeholder.
+  						It can also be combined with JavaScript so that clicking the link
+  						triggers some other action, such as showing hidden content,
+  						opening a menu, or running a function, instead of really navigating
+  						to a new page.
+					-->
 					<a href="#">[Click here for my Bio]</a>
 				</p>
 			</section>
 		</article>
+		<!-- This is new from Demo 4-1, an <article> element with the unique id "bio",
+			which includes the short biography of Usagi.
+		 -->
 		<article id="bio">
 			<p><a href="#">[Close]</a></p>
 			<p>I am one of the main characters in the Chiikawa manga and anime series. In the Chiikawa-verse, I am the best friend with Chiikawa and Hachiware. We are known for their energetic personality and playful antics during our time together.</p>

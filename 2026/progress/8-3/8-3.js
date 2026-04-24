@@ -38,7 +38,12 @@ num_array.forEach(
 	}
 );
 
+// After the webpage is fully loaded into the browser, try to change the background color
+// of each <section> in the <article> element to be "pink"
 window.onload = function() {
+	// The traditional approach: Using querySelector() to retrieve each <section> element
+	// one by one, and then change each <section> element's backgroun color setting.
+
 	/* let section1 = document.querySelector("article > section:first-of-type");
 	let section2 = document.querySelector("article > section:nth-of-type(2)");
 	let section3 = document.querySelector("article > section:last-of-type");
@@ -47,13 +52,28 @@ window.onload = function() {
 	section2.style.backgroundColor = "pink";
 	section3.style.backgroundColor = "pink"; */
 
+	// Use querySelectorAll() to find all elements that match the CSS selector
+	// "article > section" means: every <section> that is a direct child of <article>
+	//
+	// querySelectorAll() returns a NodeList.
+	// A NodeList is a collection of all matched elements
+	// It is similar to an array because it can store multiple elements in order,
+	// and you can access them with index numbers such as [0], [1], [2], etc.
+	//
+	// So section_ems does not store just one element
+	// It stores all matching <section> elements found in the page
 	let section_ems = document.querySelectorAll("article > section");
 	 /* console.log(section_ems[0]);
 	console.log(section_ems[1]);
 	console.log(section_ems[2]);
+	// There are only three matches in the array, so the FOURTH entry is undefined.
 	console.log(section_ems[3]);
+	// If there is no match, querySelectorAll() returns an empty array (length = 0).
 	let div_ems = document.querySelectorAll("article > div");
 	console.log(div_ems); */
+
+	// With the array, take out each <section> element one by one in forEach(), and then
+	// change the background color repeatedly to "pink".
 	section_ems.forEach(
 		function(section) {
 			section.style.backgroundColor = "pink";
