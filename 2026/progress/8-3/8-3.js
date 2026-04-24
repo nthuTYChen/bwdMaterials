@@ -37,3 +37,26 @@ num_array.forEach(
 		console.log(num);
 	}
 );
+
+window.onload = function() {
+	/* let section1 = document.querySelector("article > section:first-of-type");
+	let section2 = document.querySelector("article > section:nth-of-type(2)");
+	let section3 = document.querySelector("article > section:last-of-type");
+
+	section1.style.backgroundColor = "pink";
+	section2.style.backgroundColor = "pink";
+	section3.style.backgroundColor = "pink"; */
+
+	let section_ems = document.querySelectorAll("article > section");
+	 /* console.log(section_ems[0]);
+	console.log(section_ems[1]);
+	console.log(section_ems[2]);
+	console.log(section_ems[3]);
+	let div_ems = document.querySelectorAll("article > div");
+	console.log(div_ems); */
+	section_ems.forEach(
+		function(section) {
+			section.style.backgroundColor = "pink";
+		}
+	);
+};
