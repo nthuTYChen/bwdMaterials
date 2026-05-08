@@ -17,6 +17,8 @@ body {
 	font-family: serif;
 }
 
+/* These settings apply to both <nav> elements since they do not have to change
+   in different viewports. */
 nav {
 	/*
 		Explanation:
@@ -30,11 +32,19 @@ nav {
 	background-color: limegreen;
 }
 
+/* In a wider viewport, show the <nav> element whose ID is "desktop" 
+   by setting "display" to "block", since <nav> is by default a block element.
+   At the same time, set "top" to 0 so the "desktop" menu is fixed to the top
+   of the webpage.
+*/
 nav#desktop {
 	display: block;
 	top: 0;
 }
 
+/* In a wider viewport, hide the <nav> element whose ID is "mobile" 
+   by simply setting "display" to "none".
+*/
 nav#mobile {
 	display: none;
 }
@@ -84,10 +94,18 @@ p {
 }
 
 @media only screen and (max-width: 1024px) {
+	/* In a narrower viewport, hide the <nav> element whose ID is "desktop" 
+   		by simply setting "display" to "none".
+	*/
 	nav#desktop {
 		display: none;
 	}
 
+	/* In a narrower viewport, show the <nav> element whose ID is "mobile" 
+   		by setting "display" to "block", since <nav> is by default a block element.
+   		At the same time, set "bottom" to 0 so the "mobile" menu is fixed to the bottom
+   		of the webpage.
+	*/
 	nav#mobile {
 		display: block;
 		bottom: 0;

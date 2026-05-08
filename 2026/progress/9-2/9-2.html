@@ -2,7 +2,30 @@
 <html lang="en">
 	<head>
   		<meta charset="UTF-8" />
-  		<meta name="viewport" content="width=deivce-width, initial-scale=1.0">
+  		<!-- Set viewport information for responsive web design -->
+		<!-- name="viewport" means this meta tag controls how the page is shown on the screen -->
+		<!-- The content attribute gives the actual viewport settings as text -->
+		<!--
+  			In content:
+  			- width=device-width means the page width should match the device width
+  			- initial-scale=1.0 means the page starts at normal zoom level
+		-->
+		<!--
+  			This is related to responsive web design because responsive pages are meant
+  			to adjust their layout to different screen sizes, such as phones, tablets,
+  			and computers.
+		-->
+		<!--
+  			When width=device-width is used correctly, the browser treats the screen width
+  			as the real device width, so CSS rules for flexible layouts, percentages,
+  			vw units, or media queries can work more naturally on small screens.
+		-->
+		<!--
+  			Without a proper viewport setting, a mobile browser may act as if the page
+  			were much wider than the actual device screen, which can make the layout look
+  			too small and hurt responsive behavior.
+		-->
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
   		<title>9-2: Intro to Responsive Web Design</title>
   		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>

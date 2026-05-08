@@ -33,13 +33,20 @@ article {
   margin: 0 20vw;
 }
 
+/* Responsive Web Design: Apply these styles only when the screen width is 1024px or less */
+/* For settings that do not change in different viewports (e.g., background-color), there is 
+   no need to repeat them below. */
 @media only screen and (max-width: 1024px) {
   body {
+     /* Set the font size and line height for the body on narrower viewports, which are 
+     150% of the base settings applied to wider viewports above. */
     font-size: 3.6vh;
     line-height: 5.4vh;
   }
 
   article {
+     /* Make the article take 95% of the "narrower" viewport width to increase the content
+        readibility on mobile devices in the portrait view. */
     width: 95vw;
     margin: 0 2.5vw;
   }

@@ -17,6 +17,11 @@ body {
 	font-family: serif;
 }
 
+/* In this demo, we have accomplished the dynamic positioning of the <nav>
+   element: In a wider viewport, as in desktop browsers, the <nav> element
+   appears at the top of the page. In a narrower viewport, as in mobile browsers,
+   the <nav> appears at the bottom of the page. See annotatins below. */
+
 nav {
 	/*
 		Explanation:
@@ -75,14 +80,28 @@ p {
 	background-color: white;
 }
 
+/* Responsive Web Design: CSS settings that apply to a narrow viewport (width <= 1024px) */
 @media only screen and (max-width: 1024px) {
 	nav {
+		/* Cancel the top setting from the main styles applied to <nav> using the value "initial" (i.e., initial setting).
+		   "top: 0;" and "bottom: 0;" are self-contradictory (i.e., you can't have an element attached to the top and bottom edges
+		   at the same time). Since we want to move <nav> to the bottom of the page,
+		   we need to "cancel" the original "top: 0;" setting, so "bottom: 0;" can apply in a narrower viewport.
+		 */
 		top: initial;
 		bottom: 0;
 	}
 
 	article {
+		/* Remove the top margin, because the <nav> is no longer at the top */
 		margin-top: 0;
+		/* Add space at the bottom so the fixed nav does not cover article content */
 		padding-bottom: 8vh;
+		/* Originally, I tried to use "margin-bottom: 8vh;" to clear the space for the 
+		   <nav> appearing at the bottom of the webpage, but it didn't work, and this is 
+		   because the bottom margin of <article> collapses with the bottom edge of a 
+		   viewport in this case. Margin collapsing rules are very complicated, so I
+		   won't explain it here. If you're interested, see also 
+		   https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Box_model/Margin_collapsing*/
 	}
 }

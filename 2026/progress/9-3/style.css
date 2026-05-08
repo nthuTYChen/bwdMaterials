@@ -19,13 +19,22 @@ body {
 
 figure {
     height: 100%;
+    /* There's no need to use text-align to align all three images in <figure>
+       to the horizontal center. */
+    /* text-align: center; */
     background-color: lightyellow;
 }
 
 figure {
+    /* Make the figure a flex container (i.e., a "flex-box") */
     display: flex;
+    /* Align items along the cross axis */
+    /* With flex-direction: row, this controls vertical alignment */
     align-items: center;
+    /* Distribute items evenly along the main axis */
+    /* With flex-direction: row, this spreads items horizontally */
     justify-content: space-evenly;
+    /* Arrange the flex items in a horizontal row */
     flex-direction: row;
 }
 
@@ -36,9 +45,14 @@ img {
 
 @media only screen and (max-width: 1024px) {
     figure {
+        /* On screens 1024px wide or smaller (which is likely a portrait view of a mobile device),
+           change the item direction from row to column, so the items can be positioned from the top
+           to the bottom to fit the browser viewport on a mobile device.*/
         flex-direction: column;
     }
 
+    /* Enlarge the images since the 20% of viewport width in a mobile browser
+       is a bit narrow.  */
     img {
         width: 80vw;
         border-radius: 80vw;

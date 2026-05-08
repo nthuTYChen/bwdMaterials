@@ -2,11 +2,23 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <!-- Always add this line for responsive web design. See 9-2.html for detailed explanation. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Link the global CSS styles for the same document structure -->
         <link rel="stylesheet" href="style.css">
         <title>10-2: Dynamic Navigation Pane Layout Change</title>
     </head>
     <body>
+        <!-- In this demo, we try to present our <nav> elements "dynamically" in different ways.
+            We can have TWO <nav> elements labeled with a unique ID and style each <nav> element
+            differently. In a wider viewport, we simply display "desktop" <nav> and hide "mobile" <nav>,
+            and in a narrower viewport, the other way around. This way, we do not have to figure
+            out how to "transform" the only <nav> element in different viewports.
+        -->
+        <!-- This demo has three pages, so all three pages have the sasme two <nav> elements.
+             And since all three pages are linked to the global CSS styles, the same responsive web design
+             will apply to all three pages (see style.css).
+        -->
         <nav id="desktop">
             <!-- Add hyperlinks to other HTML documents IN THE SAME FOLDER -->
             <a href="index.html">Home</a>
