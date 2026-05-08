@@ -1,0 +1,46 @@
+body {
+  font-size: 2.4vh;
+  line-height: 3.6vh;
+}
+
+h1 {
+  font-size: 150%;
+}
+
+h2 {
+  font-size: 120%;
+}
+
+h1, h2 {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+p > a {
+  color: brown;
+}
+
+h2 > a {
+  color: royalblue;
+}
+
+article {
+  background-color: pink;
+  width: 60vw;
+  margin: 0 20vw;
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    font-size: 3.6vh;
+    line-height: 5.4vh;
+  }
+
+  article {
+    width: 95vw;
+    margin: 0 2.5vw;
+  }
+}
