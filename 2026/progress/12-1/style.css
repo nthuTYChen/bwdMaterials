@@ -1,0 +1,91 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: pink;
+	font-size: 2.4vh;
+	line-height: 3.6vh;
+	font-family: serif;
+}
+
+nav {
+	/*
+		Explanation:
+			1. position: fixed removes the element from the normal document flow.
+			2. Its position is relative to the viewport, not to <article>.
+			3. top: 0 puts it at the top edge of the viewport.
+	*/
+	position: fixed;
+	top: 0;
+	width: 80%;
+	margin-left: 10%;
+	background-color: limegreen;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+h1 {
+	font-size: 4.8vh;
+	line-height: 7.2vh;
+	padding: 2vh 0;
+}
+
+h2 {
+	font-size: 3.6vh;
+	line-height: 5.4vh;
+	padding: 1.5vh 0;
+}
+
+h1, h2, nav {
+	font-family: sans-serif;
+	text-align: center;
+}
+
+h1, h2 {
+	background-color: blanchedalmond;
+}
+
+article {
+	width: 80%;
+	margin-left: 10%;
+	/* 
+		In the original layout (see the HTML files), <nav> is placed above <article>, but since <nav> is set to have
+		a fixed position, <nav> is taken out from the original document "flow". The space it left on the webpage is
+		occupied by this <article>, and <nav> can partially overlap with <article>, which is bad. Thus, we set a
+		top padding for <article> to reserve the space for <nav> and avoid the overlap between the two elements.
+	 */
+	padding-top: 8vh;
+}
+
+section {
+	margin: 1.5vh 0;
+	background-color: tomato;
+}
+
+p {
+	margin: 1vh 0;
+	padding: 1vh;
+	background-color: white;
+}
+
+
+@media only screen and (max-width: 1200px) {
+	nav {
+		width: 20%;
+		margin-left: 0;
+		top: 0;
+		left: 0;
+		flex-direction: column;
+		opacity: 0.7;
+	}
+}

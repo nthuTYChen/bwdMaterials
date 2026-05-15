@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Copse&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+	overflow-x: hidden;
+	font-size: 1.8vh;
+	line-height: 2.7vh;
+	font-family: Copse, serif;
+	color: #191d32;
+	background-color: white;
+}
+
+a, a:visited {
+	color: #191d32;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #282f44;
+}
+
+h1, sub {
+	font-family: Concert One, sans-serif;
+}
+
+h1 {
+	font-size: 3.6vh;
+	line-height: 5.4vh;
+	color: #282f44;
+}
+
+sub {
+	font-size: 1.6vh;
+	line-height: 2.4vh;
+}
+
+h1, sub, p {
+	margin: 1vh 0;
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	right: 75vw;
+	background-color: #111111;
+}
+
+nav > p {
+	padding: 5px;
+}
+
+nav > p:hover {
+	opacity: 0.7;
+}
+
+nav > p > a, nav > p > a:visited {
+	color: white;
+}
+
+article {
+	width: 60vw;
+	margin-left: 25vw;
+}
+
+article > section:last-of-type {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+figure {
+	position: relative;
+	width: 20vw;
+	margin: 1vh 2vw;
+}
+
+figure > img {
+	width: 20vw;
+	border-radius: 10px;
+}
+
+figure > figcaption {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	background-color: white;
+	padding: 5px;
+	opacity: 0.7;
+}
+
+@media only screen and (max-width: 1200px) {
+	article {
+		width: 80vw;
+		margin-left: 20vw;
+	}
+
+	nav {
+		width: 20vw;
+		top: initial;
+		bottom: 0;
+	}
+
+	article > section:last-of-type {
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+
+	figure {
+		width: 60vw;
+	}
+
+	figure > img {
+		width: 60vw;
+	}
+}
