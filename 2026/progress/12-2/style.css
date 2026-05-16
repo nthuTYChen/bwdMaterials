@@ -29,11 +29,18 @@ nav {
 	width: 80%;
 	margin-left: 10%;
 	background-color: limegreen;
+	/* Make the <nav> element a flex container */
 	display: flex;
+	/* Arrange the flex items in a horizontal line */
+	/* Here, the three hyperlinks in this <nav> element will be placed in one row */
 	flex-direction: row;
+	/* Spread the hyperlinks evenly across the row */
+	/* This adds even horizontal space around the three links */
 	justify-content: space-evenly;
 }
 
+/* Hide the hamburger menu in a wide/desktop viewport by default, since all menu items
+   appear in the menu floating at the top of the viewport. */
 nav > span {
 	display: none;
 }
@@ -83,6 +90,9 @@ p {
 }
 
 @media only screen and (max-width: 1200px) {
+	/* Reshape the <nav> element so it becomes a floating menu in the top-left corner 
+	   in a narrow viewport (See style.css in 12-1 for explanations)
+	*/
 	nav {
 		width: 20%;
 		margin-left: 0;
@@ -90,10 +100,15 @@ p {
 		left: 0;
 	}
 
+	/* Display the hamburger menu symbol in a narrow/mobile viewport by default, which serve as 
+	   a button to show all menu items (see script.js). The value is "inline" It is "inline" 
+	   because a <span> element is by default part of a text line. */
 	nav > span {
 		display: inline;
 	}
 
+	/* Hide all menu symbols in a narrow/mobile viewport by default, which appear only when
+	   users click on the hamburger menu symbol (see script.js) */
 	nav > a {
 		display: none;
 	}

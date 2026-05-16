@@ -29,8 +29,13 @@ nav {
 	width: 80%;
 	margin-left: 10%;
 	background-color: limegreen;
+	/* Make the <nav> element a flex container */
 	display: flex;
+	/* Arrange the flex items in a horizontal line */
+	/* Here, the three hyperlinks in this <nav> element will be placed in one row */
 	flex-direction: row;
+	/* Spread the hyperlinks evenly across the row */
+	/* This adds even horizontal space around the three links */
 	justify-content: space-evenly;
 }
 
@@ -80,12 +85,26 @@ p {
 
 
 @media only screen and (max-width: 1200px) {
+	/* Reshape the <nav> element so it becomes a floating menu in the top-left corner 
+	   in a narrow viewport.
+	*/
 	nav {
+		/* Change the <nav> element to have a narrower width because a mobile browser
+		   would have a narrow width as well.
+		 */
 		width: 20%;
+		/* There is a left margin for the desktop browser, but we don't need it for
+		   a mobile browser, so set it as zero.
+		 */
 		margin-left: 0;
-		top: 0;
+		/* Make sure that the <nav> is attached to the left viewport edge. We don't need
+		   to set up "top" because "top: 0;" remains unchanged for our design here.
+		 */
 		left: 0;
+		/* Arrange the flex items in a verticle line */
+		/* Here, the three hyperlinks in this <nav> element will be placed in one column */
 		flex-direction: column;
+		/* Make the menu half-transparent so it does not fully block any content of the webpage. */
 		opacity: 0.7;
 	}
 }

@@ -22,6 +22,9 @@ body {
 	background-color: white;
 }
 
+/* The hyperlink settings below are for the three hyperlinks 
+   in index.html to different subpages.
+*/
 a, a:visited {
 	color: #191d32;
 	text-decoration: none;
@@ -50,6 +53,12 @@ h1, sub, p {
 	margin: 1vh 0;
 }
 
+/* Most of settings for the <nav> element should be rather straightforward.
+   One thing that deserves some explanation is the right margin (75vw), which
+   is set based on the width of the <article> element (60vw) and its right margin (15vw).
+   That is, the right edge of the <nav> element will be perfectly aligned to the left
+   edge of <article>.
+ */
 nav {
 	position: fixed;
 	top: 0;
@@ -57,68 +66,141 @@ nav {
 	background-color: #111111;
 }
 
+/* Add some padding to all sides of each menu item (<p>) in <nav>
+   so the menu text is not too close to the edges.
+ */
 nav > p {
 	padding: 5px;
 }
 
+/* Make each menu item half transparent when the mouse cursor moves over it,
+   so the menu item becomes more interactive.
+ */
 nav > p:hover {
 	opacity: 0.7;
 }
 
+/* Make the hyperlinks in each menu item to have a white color, whether visited or not.
+   This MORE SPECIFIC setting is necessary so the color of these hyperlinks is different
+   from the color of the hyperlinks in index.html.
+ */
 nav > p > a, nav > p > a:visited {
 	color: white;
 }
 
+/* Set the <article> element in the three subpages to have a width of 60vw and a left margin
+   of 25vw (the right margin is thus 100 - 60 - 25 = 15vw), so the <article> element sit in 
+   the middle of the viewport but also slightly moved to the right. */
 article {
 	width: 60vw;
 	margin-left: 25vw;
 }
 
+/* Every <section> (and also the last one) in a subpage is the container of trip photos, so
+   it is set as a flexbox to make it easier to arrange the layout of photos.
+*/
 article > section:last-of-type {
+	/* Make this section a flex container */
 	display: flex;
+	/* Arrange the flex items in a horizontal row in a wide/desktop viewport*/
 	flex-direction: row;
+	/* Allow the items to move onto a new line if there is not enough space,
+	   so the photos would be presented in multiple rows.
+	 */
 	flex-wrap: wrap;
+	/* Spread the items with an even space in between across each row */
 	justify-content: space-evenly;
+	/* Align the items at the center along the cross axis (vertical alignment in each row) */
 	align-items: center;
 }
 
+/* A <figure> element is the container of a trip photo in <img> and the photo caption in <figcaption>. See, 
+   for instance at.html. */
+
+/* Style every <figure> element */
 figure {
+	/* Make the figure a positioned element */
+	/* This is not because we want to move the figure element to somewhere else.
+	   We just need to allow absolutely positioned children inside it
+	   to be placed relative to the four edges of the figure */
 	position: relative;
+	/* Set the figure width to 20% of the viewport width */
 	width: 20vw;
+	/* Add vertical margin of 1vh and horizontal margin of 2vw, so every two figures
+	   can be separated from each other inside each rwo and across two rows.
+	 */
 	margin: 1vh 2vw;
 }
 
+/* Style every <img> that is a direct child of <figure> */
 figure > img {
+	/* Set the image width to 20% of the viewport width (same as the width of the container) */
 	width: 20vw;
+	/* Round the corners of the image */
 	border-radius: 10px;
 }
 
+/* Style every <figcaption> that is a direct child of <figure> */
 figure > figcaption {
+	/* Place the caption absolutely inside the figure by refering to 
+	   the figure's four edges.
+	*/
 	position: absolute;
+	/* Put the caption 10px down from the top edge of the figure */
 	top: 10px;
+	/* Put the caption at the left edge of the figure */
 	left: 0;
+	/* Give the caption a white background so it can still stand out
+	   when the photo and the font have similar colors.
+	*/
 	background-color: white;
+	/* Add space inside the caption box */
 	padding: 5px;
+	/* Make the caption slightly transparent so the details of a photo
+	   can still be visible in the background.
+	*/
 	opacity: 0.7;
 }
 
 @media only screen and (max-width: 1200px) {
+	/* In a narrow/mobile viewport, we should make the best use of all
+	   available space.
+	 */
+
 	article {
+		/* Make the <article> element takes 80% of the viewport width, and leave the
+		   20% of the viewport on the left for the menu. */
 		width: 80vw;
 		margin-left: 20vw;
 	}
 
 	nav {
+		/* The menu fills the 20% of the viewport width on the left. */
 		width: 20vw;
+		/* The menu was fixed to the top edge of the viewport, but in
+		   a narrow mobile viewport, we can move it to the bottom of a 
+		   viewport, so we need to "unset" the "top: 0;" setting by
+		   making it "top: initial;".*/
 		top: initial;
+		/* Then, we can set "bottom: 0;" to fix the menu to the bottom
+		   of the webpage. */
 		bottom: 0;
 	}
 
 	article > section:last-of-type {
+		/* Set the photo container to have a vertical flex direction, so
+	   	   all the photos can be displayed in a column. */
 		flex-direction: column;
+		/* When photos are displayed vertically in a mobile device, users
+		   can simply scroll up and down to see all the photos, so there's
+		   no need to wrap lines. All photos can be displayed in just one
+		   single column. */
 		flex-wrap: nowrap;
 	}
 
+	/* Set each <figure> element and each <img> to have a width of 60vw,
+	   so the photos can be made more visible in the photo container.
+	 */
 	figure {
 		width: 60vw;
 	}
