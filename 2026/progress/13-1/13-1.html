@@ -34,12 +34,43 @@
 			a, a:visited {
 				color: hotpink;
 				text-decoration: none;
+				/* 
+      				 transition controls how smoothly a CSS property changes.
+
+       				all:
+       				All animatable CSS properties will transition smoothly.
+
+       				0.3s:
+       				The transition lasts 0.3 seconds.
+
+       				linear:
+       				The change happens at a constant speed from beginning to end.
+
+       				In this code, this transition mainly affects the color change
+       				when the mouse leaves the link and the link returns from
+       				yellow back to hotpink.
+    			*/
 				transition: all 0.3s linear;
 			}
 
 			a:hover {
 				color: yellow;
-				/* transition: all 0.5s linear; */
+				/* 
+       				This transition is active during the hover state.
+
+       				all:
+       				All animatable CSS properties will transition smoothly.
+
+       				0.5s:
+       				The transition lasts 0.5 seconds.
+
+       				ease-out:
+       				The transition starts faster and slows down near the end.
+
+       				In this code, this transition mainly affects the color change
+       				when the mouse enters the link and the link changes from
+       				hotpink to yellow.
+    			*/
 				transition: all 0.5s ease-out;
 			}
 		</style>

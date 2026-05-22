@@ -15,36 +15,75 @@
                 top: 0;
                 right: 0;
                 /* width: 10vw; */
+
+                /* Change the original "width" setting to be 3vw, so the menu 
+                   becomes a narrow vertical line on the right of the screen when
+                   menu items are all hidden, and only the hamburger icon is left (see below).
+                */
                 width: 3vw;
                 padding: 20px;
                 box-sizing: border-box;
                 background-color: #f2f2f2;
                 min-height: 100vh;
-                /* transition: width 0.3s linear; */
+                /* When the mouse cursor leaves the <nav> area, the width becomes 3vw once again,
+                   and a gradual transition would apply to the width change.
+                 */
                 transition: width 0.3s ease-out;
+                /* Set the default opacity to 0.8, so <nav> does not block the page content when
+                   it expands.
+                 */
                 opacity: 0.8;
             }
 
+            /* When the mouse cursor moves over the <nav> area... */
             nav:hover {
+                /* Expand the <nav> element to have a width of 10vw, so it is wide enough
+                   for menu items to display properly (see below).
+                  */
                 width: 10vw;
-                /* transition: width 0.5s linear; */
+                /* When the <nav> area expands and a gradual transition would apply to the width change.
+                 */
                 transition: width 0.5s ease-out;
             }
 
             nav a {
                 /* display: block; */
+
+                /* Change the original "display" setting so all menu items in
+                   <a> are hidden by default.
+                */
                 display: none;
                 margin-bottom: 12px;
                 text-decoration: none;
                 color: #003366;
             }
 
+
+            /* 
+                Targets all menu items in <a> inside a <nav> element
+                when the mouse pointer is placed over the <nav> area.
+            */
             nav:hover a {
+                 /* 
+                    Changes the hyperlinks into block-level elements.
+
+                    This means each <a> element will:
+                    1. start on a new line,
+                    2. take up the full available width by default,
+                    3. behave more like a vertical menu item.
+
+                    In this case, the links become visible or arranged vertically
+                    when the user hovers over the navigation area.
+                */
                 display: block;
             }
 
             article {
                 /* margin-right: 10vw; */
+
+                /* Change the original margin-right setting to 5vw, so the extra space left by
+                   <nav>, which is hidden by default, can be used to display more page content.
+                 */
                 margin-right: 5vw;
                 padding: 24px;
                 box-sizing: border-box;
@@ -78,6 +117,7 @@
     </head>
     <body>
         <nav>
+            <!-- Add a hamburger menu icon here -->
             <p>☰</p>
             <a href="https://www.nthu.edu.tw/" target="_blank">
                 National Tsing Hua University

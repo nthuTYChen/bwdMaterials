@@ -31,10 +31,46 @@
 				transform: translate(-50%, -50%);
 			}
 
+			/*
+       			Targets the first <span> element inside an <h1> element.
+
+       			h1 > span means:
+       			Select <span> elements that are direct children of an <h1>.
+
+       			:first-of-type means:
+       			Select the first <span> among the span elements inside the same parent.
+    		*/
 			h1 > span:first-of-type {
+				 /*
+       				Applies an animation to the selected <span> element.
+
+       				changeOpacity:
+       				This is the name of the animation.
+
+       				1s:
+       				The animation takes 1 second to complete one cycle.
+
+       				ease-in:
+       				The animation starts slowly and then becomes faster.
+
+       				infinite:
+       				The animation repeats forever.
+
+       				alternate:
+       				The animation direction alternates each cycle.
+
+       				This means:
+       				- In the first cycle, the span changes from opacity 1 to opacity 0.1.
+       				- In the next cycle, it changes back from opacity 0.1 to opacity 1.
+       				- This back-and-forth animation continues forever.
+
+       				As a result, the first <span> inside the <h1> appears to fade in
+       				and fade out repeatedly.
+       			*/
 				animation: changeOpacity 1s ease-in infinite alternate;
 			}
 
+			/* Add the animation to other <span> in <h1> below but with a different time length */
 			h1 > span:nth-of-type(2) {
 				animation: changeOpacity 0.3s ease-in infinite alternate;
 			}
@@ -56,10 +92,36 @@
 			}
 
 			@keyframes changeOpacity {
+				 /* 
+       				Defines an animation named changeOpacity.
+
+       				@keyframes is used to describe how an element should change
+       				during an animation.
+
+       				The name changeOpacity can later be used with the animation-name
+       				property or inside the animation shorthand property.
+    			*/
 				from {
+					/* 
+           				Defines the starting point of the animation.
+
+           				It describes how the element looks at the beginning.
+
+           				The element starts fully visible.
+        			*/
 					opacity: 1;
 				}
 				to {
+					/* 
+          				Defines the ending point of the animation.
+
+           				It describes how the element looks at the end.
+
+           				The element becomes almost transparent.
+
+           				opacity: 0.1 means the element is still slightly visible,
+           				but much less visible than before.
+        			*/
 					opacity: 0.1;
 				}
 			}
@@ -68,6 +130,9 @@
 	<body>
 		<article>
 			<h1>
+				<!-- Enclose every word inside <span></span>, so each word can have different animation settings
+				     as shown above. Consequently, different parts of the sentence "shine" in a different way.
+				-->
 				<span>This</span> <span>is</span> <span>going</span> <span>to</span> <span>be</span> <span>cool!</span>
 			</h1>
 		</article>
