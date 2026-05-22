@@ -1,0 +1,140 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>13-2: Hovering Transition and Navigation Pane</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                font-size: 1.8vh;
+                line-height: 2.4vh;
+            }
+
+            nav {
+                position: absolute;
+                top: 0;
+                right: 0;
+                /* width: 10vw; */
+                width: 3vw;
+                padding: 20px;
+                box-sizing: border-box;
+                background-color: #f2f2f2;
+                min-height: 100vh;
+                /* transition: width 0.3s linear; */
+                transition: width 0.3s ease-out;
+                opacity: 0.8;
+            }
+
+            nav:hover {
+                width: 10vw;
+                /* transition: width 0.5s linear; */
+                transition: width 0.5s ease-out;
+            }
+
+            nav a {
+                /* display: block; */
+                display: none;
+                margin-bottom: 12px;
+                text-decoration: none;
+                color: #003366;
+            }
+
+            nav:hover a {
+                display: block;
+            }
+
+            article {
+                /* margin-right: 10vw; */
+                margin-right: 5vw;
+                padding: 24px;
+                box-sizing: border-box;
+            }
+
+            section {
+                margin-bottom: 24px;
+            }
+
+            h1, h2 {
+                margin-top: 0;
+            }
+
+            article > section {
+                background-color: pink;
+            }
+
+            article > section:nth-of-type(even) {
+                background-color: orange;
+            }
+
+            nav > a:hover {
+                color: crimson;
+            }
+
+            section a:hover {
+                color: burlywood;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <nav>
+            <p>☰</p>
+            <a href="https://www.nthu.edu.tw/" target="_blank">
+                National Tsing Hua University
+            </a>
+            <a href="https://fl.site.nthu.edu.tw/index.php?Lang=en" target="_blank">
+                NTHU Department of Foreign Languages and Literature
+            </a>
+        </nav>
+
+        <article>
+            <h1>National Tsing Hua University and DFLL</h1>
+
+            <section>
+                <h2>About National Tsing Hua University</h2>
+                <p>
+                    National Tsing Hua University is a major research university in Taiwan. It has developed into a comprehensive institution offering programs in science, technology, engineering, humanities, social sciences, and management. The university is known for strong academic research, diverse degree programs, and an international learning environment.
+                </p>
+                <p>
+                    Relevant links:
+                    <a href="https://nthu-en.site.nthu.edu.tw/" target="_blank">Official English Website</a>
+                    <a href="https://nthu-en.site.nthu.edu.tw/p/403-1003-4800.php" target="_blank">Study at NTHU</a>
+                </p>
+            </section>
+
+            <section>
+                <h2>Academic Environment at NTHU</h2>
+                <p>
+                    NTHU provides rigorous academic training and a broad range of learning opportunities across multiple colleges and disciplines. Its programs are designed to support both professional development and interdisciplinary study, helping students prepare for advanced research and future careers.
+                </p>
+                <p>
+                    Relevant links:
+                    <a href="https://nthu-en.site.nthu.edu.tw/p/403-1003-4805.php" target="_blank">Academics</a>
+                    <a href="https://nthu-en.site.nthu.edu.tw/p/406-1003-77935%2Cr4805.php" target="_blank">Academic Calendar &amp; Courses</a>
+                </p>
+            </section>
+            <section>
+                <h2>About the Department of Foreign Languages and Literature</h2>
+                <p>
+                    The Department of Foreign Languages and Literature at NTHU focuses on both foreign literature and language science. The department aims to cultivate students with humanistic awareness and logical thinking, while supporting balanced development in literary studies and linguistics.
+                </p>
+                <p>
+                    <a href="https://fl.site.nthu.edu.tw/index.php?Lang=en" target="_blank">DFLL Official Website</a>
+                    <a href="https://fl.site.nthu.edu.tw/p/426-1396-2.php?Lang=en" target="_blank">Department Overview</a>
+                </p>
+            </section>
+
+            <section>
+                <h2>Study Focus in NTHU DFLL</h2>
+                <p>
+                    NTHU DFLL offers students opportunities to explore literature, linguistics, language research, and related interdisciplinary fields. With faculty expertise in both literary studies and language studies, the department provides a strong foundation for students interested in advanced language, culture, and textual analysis.
+                </p>
+                <p>
+                    Relevant links:
+                    <a href="https://fl.site.nthu.edu.tw/p/426-1396-9.php?Lang=en" target="_blank">Course Map</a>
+                    <a href="https://fl.site.nthu.edu.tw/p/426-1396-4.php?Lang=en" target="_blank">Faculty</a>
+                </p>
+            </section>
+        </article>
+    </body>
+</html>
