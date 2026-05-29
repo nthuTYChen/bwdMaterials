@@ -41,123 +41,74 @@ h1, sub, p {
 	margin: 1vh 0;
 }
 
-/* Most of settings for the <nav> element should be rather straightforward.
-   One thing that deserves some explanation is the right margin (75vw), which
-   is set based on the width of the <article> element (60vw) and its right margin (15vw).
-   That is, the right edge of the <nav> element will be perfectly aligned to the left
-   edge of <article>.
- */
 nav {
 	position: fixed;
 	top: 0;
 	right: 75vw;
 	background-color: #111111;
 	color: white;
+	/* Set a fixed with for the navigation pane, so the menu takes 10% of viewport width */
 	width: 10vw;
+	/* Align the menu item text to the horizontal center */
 	text-align: center;
 }
 
-/* Add some padding to all sides of each menu item (<p>) in <nav>
-   so the menu text is not too close to the edges.
- */
 nav > p {
 	padding: 5px;
 }
 
+/* Make the mouse cursor a pointer for the first menu item <p> in the navigation pane,
+	which is the hamburger menu.
+ */
 nav > p:first-of-type {
 	cursor: pointer;
 }
 
+/* Hide non-first menu items in the navigation menu by default. Their appearance is
+   controlled by JavaScript in script.js.
+ */
 nav > p:not(:first-of-type) {
 	display: none;
 }
 
-/* Make each menu item half transparent when the mouse cursor moves over it,
-   so the menu item becomes more interactive.
- */
 nav > p:hover {
 	opacity: 0.7;
 }
 
-/* Make the hyperlinks in each menu item to have a white color, whether visited or not.
-   This MORE SPECIFIC setting is necessary so the color of these hyperlinks is different
-   from the color of the hyperlinks in index.html.
- */
 nav > p > a, nav > p > a:visited:hover, nav > p > a:visited {
 	color: white;
 	text-decoration: none;
 }
 
-/* Set the <article> element in the three subpages to have a width of 60vw and a left margin
-   of 25vw (the right margin is thus 100 - 60 - 25 = 15vw), so the <article> element sit in 
-   the middle of the viewport but also slightly moved to the right. */
 article {
 	width: 60vw;
 	margin-left: 25vw;
 }
 
-/* Every <section> (and also the last one) in a subpage is the container of trip photos, so
-   it is set as a flexbox to make it easier to arrange the layout of photos.
-*/
 article > section:last-of-type {
-	/* Make this section a flex container */
 	display: flex;
-	/* Arrange the flex items in a horizontal row in a wide/desktop viewport*/
 	flex-direction: row;
-	/* Allow the items to move onto a new line if there is not enough space,
-	   so the photos would be presented in multiple rows.
-	 */
 	flex-wrap: wrap;
-	/* Spread the items with an even space in between across each row */
 	justify-content: space-evenly;
-	/* Align the items at the center along the cross axis (vertical alignment in each row) */
 	align-items: center;
 }
 
-/* A <figure> element is the container of a trip photo in <img> and the photo caption in <figcaption>. See, 
-   for instance at.html. */
-
-/* Style every <figure> element */
 figure {
-	/* Make the figure a positioned element */
-	/* This is not because we want to move the figure element to somewhere else.
-	   We just need to allow absolutely positioned children inside it
-	   to be placed relative to the four edges of the figure */
 	position: relative;
-	/* Set the figure width to 20% of the viewport width */
 	width: 20vw;
-	/* Add vertical margin of 1vh and horizontal margin of 2vw, so every two figures
-	   can be separated from each other inside each rwo and across two rows.
-	 */
 	margin: 1vh 2vw;
 }
 
-/* Style every <img> that is a direct child of <figure> */
 figure > img {
-	/* Set the image width to 20% of the viewport width (same as the width of the container) */
 	width: 20vw;
-	/* Round the corners of the image */
 	border-radius: 10px;
 }
 
-/* Style every <figcaption> that is a direct child of <figure> */
 figure > figcaption {
-	/* Place the caption absolutely inside the figure by refering to 
-	   the figure's four edges.
-	*/
 	position: absolute;
-	/* Put the caption 10px down from the top edge of the figure */
 	top: 10px;
-	/* Put the caption at the left edge of the figure */
 	left: 0;
-	/* Give the caption a white background so it can still stand out
-	   when the photo and the font have similar colors.
-	*/
 	background-color: white;
-	/* Add space inside the caption box */
 	padding: 5px;
-	/* Make the caption slightly transparent so the details of a photo
-	   can still be visible in the background.
-	*/
 	opacity: 0.7;
 }

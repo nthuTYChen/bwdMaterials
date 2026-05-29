@@ -3,23 +3,100 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>14-1: jQuery Styling and Animation</title>
+		<!--
+    		This line imports the jQuery library into the HTML document. If your JavaScript code
+    		is based on jQuery, make sure that this line is placed before your JavaScript code,
+    		so jQuery is loaded first and then used in your own code.
+
+    		<script>
+    		The <script> element is used to include JavaScript code in an HTML page.
+
+    		src="https://code.jquery.com/jquery-4.0.0.min.js"
+    		The src attribute tells the browser where to find the JavaScript file.
+
+    		In this example, the JavaScript file is loaded from an external website:
+    		https://code.jquery.com/
+
+    		This is called an external import because the file is not stored inside
+    		your own project folder. Instead, it is downloaded from a remote server.
+
+
+    		</script>
+    		This closes the script element.
+
+    		Advantage of external import:
+
+    		1. It is convenient.
+       			You do not need to download the jQuery file yourself.
+
+    		2. It may load faster.
+       			CDN servers are usually optimized for fast file delivery.
+
+    		3. It saves space in your own project.
+       			The library file is not stored locally.
+
+    		4. It is easy to update.
+       			You can change the src URL if you want to use another version.
+
+    		Possible disadvantage of external import:
+
+    		1. It depends on the internet.
+       		If the user has no internet connection, the file may not load.
+
+    		2. It depends on the external server.
+       		If the CDN is unavailable, your jQuery code may stop working.
+
+    		3. You have less direct control.
+       		The file is managed by another server, not by your own project.
+		-->
 		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 		<script>
+			// Runs the function after the window/document is ready.
+    		// This makes sure the HTML elements have already been loaded
+    		// before jQuery tries to select or control them.
+
+    		// This is equivalent of "window.onload = function()..." in basic JavaScript
 			$(window).ready(function() {
+				// Selects the element with id="green". This is equivalent to "document.querySelectorAll("#green")"
+        		//
+        		// .on("click", function() { ... }) adds a click event listener. 
+        		// This is equivalent to "...addEventListener("click", function()...)"
+
+        		// When the user clicks the #green element, the function below runs.
 				$("#green").on("click", function() {
-					//alert("clicked!");
+					// Selects the element with id="colorBlock".
+        			//
+        			// .css({...}) changes one or more CSS properties of the selected element.
+        			// Pass an object including CSS properties and the values to be changed.
+        			//
+        			// "background-color": "green"
+        			// Changes the background color of #colorBlock to green.
+        			//
+        			// "opacity": 0.5
+        			// Makes #colorBlock partly transparent.
 					$("#colorBlock").css({"background-color": "green", "opacity": 0.5});
 				});
 
+				// Similar to the above code. The event listener is added to the #yellow button, though.
 				$("#yellow").on("click", function() {
-					//alert("clicked!");
 					$("#colorBlock").css({"background-color": "yellow", "opacity": 0.5});
 				});
 
+				// Selects the element with id="slideUp".
+        		//
+        		// When the user clicks the #slideUp element,
+        		// the function below runs.
 				$("#slideUp").on("click", function() {
+					// Selects the element with id="slidingBlock".
+        			//
+        			// .slideUp(500) hides the element with an upward sliding animation.
+        			//
+        			// 500 means the animation lasts 500 milliseconds.
+        			// 500 milliseconds = 0.5 seconds.
 					$("#slidingBlock").slideUp(500);
 				});
 
+				// Similar to the above code, but for the #slideDown button and for a downward sliding animation
 				$("#slideDown").on("click", function() {
 					$("#slidingBlock").slideDown(1000);
 				});

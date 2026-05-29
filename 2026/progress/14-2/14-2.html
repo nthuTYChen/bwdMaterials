@@ -6,20 +6,41 @@
         <!-- jQuery is already loaded for you -->
         <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
         <script>
-            /* Complete the following task using jQuery:
-
-               When a <figure> profile picture is clicked, the <p> element next to it slides down and appears after 1 second.
-                
-             */
+            // Runs the function after the webpage is ready.
+            // This makes sure the HTML elements have already been loaded
+            // before jQuery tries to select or control them.
             $(window).ready(function() {
+                // Selects ALL <figure> elements on the page.
+                //
+                // .on("click", function() { ... }) adds a click event listener
+                // to EACH selected <figure>.
+                //
+                // When any <figure> element is clicked, the function below runs.
                 $("figure").on("click", function() {
-                    //alert("a figure is clicked!");
+                    // this refers to the specific <figure> that was clicked.
+                    //
+                    // $(this) converts the clicked figure into a jQuery object,
+                    // so that jQuery methods can be used on it.
+                    //
+                    // .siblings() selects all sibling elements of the clicked figure.
+                    // Sibling elements are elements that share the same parent.
+                    //
+                    // For example, if several <figure> elements are inside the same <section>,
+                    // clicking one figure will select the other elements inside that same section.
+                    //
+                    // .slideDown(1000) shows the selected sibling elements with
+                    // a downward sliding animation.
+                    //
+                    // 1000 means the animation lasts 1000 milliseconds.
+                    // 1000 milliseconds = 1 second.
+                    //
+                    // In simple terms:
+                    // When a figure is clicked, its sibling elements slide down and become visible.
                     $(this).siblings().slideDown(1000);
                 });
             });
         </script>
         <style>
-            /* Do not change anything below */
             * {
                 margin: 0;
                 padding: 0;
@@ -71,13 +92,6 @@
                 line-height: 3.6vh;
                 display: none;
             }
-            /* Do not change anything above. */
-            
-            /* Complete the following tasks by adding new CSS styles: 
-
-                1. Hide every <p> inside every <section> using "display".
-
-            */
         </style>
     </head>
     <body>
