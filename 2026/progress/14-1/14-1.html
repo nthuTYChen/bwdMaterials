@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>14-1: jQuery Styling and Animation</title>
+		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+		<script>
+			$(window).ready(function() {
+				$("#green").on("click", function() {
+					//alert("clicked!");
+					$("#colorBlock").css({"background-color": "green", "opacity": 0.5});
+				});
+
+				$("#yellow").on("click", function() {
+					//alert("clicked!");
+					$("#colorBlock").css({"background-color": "yellow", "opacity": 0.5});
+				});
+
+				$("#slideUp").on("click", function() {
+					$("#slidingBlock").slideUp(500);
+				});
+
+				$("#slideDown").on("click", function() {
+					$("#slidingBlock").slideDown(1000);
+				});
+			});
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			html {
+				height: 100%;
+				width: 100%;
+			}
+
+			body {
+				min-height: 100%;
+				width: 100%;
+				overflow-x: hidden;
+				background-color: pink;
+			}
+
+			body > article {
+				text-align: center;
+			}
+
+			body > article > section {
+				display: inline-block;
+				width: 250px;
+				height: 250px;
+				background-color: lightgrey;
+			}
+
+			h1, button {
+				font-family: sans-serif;
+			}
+
+			button {
+				padding: 5px;
+				font-size: 200%;
+			}
+
+			button:hover {
+				background-color: goldenrod;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<article>
+			<h1>Change the Color of the Square!</h1>
+			<section id="colorBlock">
+				
+			</section>
+			<p>
+				<button id="green">Green!</button> <button id="yellow">Yellow!</button>
+			</p>
+		</article>
+		<article>
+			<h1>Slide Up and Down!</h1>
+			<section id="slidingBlock">
+				
+			</section>
+			<p>
+				<button id="slideUp">Slide Up!</button> <button id="slideDown">Slide Down!</button>
+			</p>
+		</article>
+	</body>
+</html>

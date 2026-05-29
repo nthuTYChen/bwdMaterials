@@ -1,0 +1,103 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>14-2: "this" in jQuery</title>
+        <!-- jQuery is already loaded for you -->
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+        <script>
+            /* Complete the following task using jQuery:
+
+               When a <figure> profile picture is clicked, the <p> element next to it slides down and appears after 1 second.
+                
+             */
+            $(window).ready(function() {
+                $("figure").on("click", function() {
+                    //alert("a figure is clicked!");
+                    $(this).siblings().slideDown(1000);
+                });
+            });
+        </script>
+        <style>
+            /* Do not change anything below */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            html {
+                height: 100%;
+                width: 100%;
+            }
+
+            body {
+                min-height: 100%;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            article {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                min-height: 100%;
+                width: 100%;
+            }
+
+            section {
+                width: 20vw;
+                margin: 0 1vw;
+                background-color: lightyellow;
+                border: 1px solid orange;
+            }
+
+            section > figure {
+                float: left;
+                margin: 1vw;
+            }
+
+            section > figure:hover {
+                cursor: pointer;
+            }
+
+            section > figure > img {
+                max-width: 18vw;
+            }
+
+            section > p {
+                padding: 1vh 1vw;
+                font-family: sans-serif;
+                font-size: 2.4vh;
+                line-height: 3.6vh;
+                display: none;
+            }
+            /* Do not change anything above. */
+            
+            /* Complete the following tasks by adding new CSS styles: 
+
+                1. Hide every <p> inside every <section> using "display".
+
+            */
+        </style>
+    </head>
+    <body>
+        <article>
+            <section>
+                <figure>
+                    <img src="img/chiikawa.jpg"/>
+                </figure>
+                <p>
+                    Chiikawa is the titular protagonist of the manga and the anime series. Early on, Chiikawa was named as Nitori. Chiikawa is depicted as timid and tearful, afraid of monsters, and living in a house won in the Muchauma Yogurt lottery. Chiikawa, unlike some other characters, cannot speak in a way that is intelligible to the audience, only saying things such as "yada" and "iya", both of which are child-like ways of saying "no" in Japanese. It expresses itself primarily through sounds, but it is understandable to the rest of the cast.
+                </p>
+            </section>
+            <section>
+                <figure>
+                    <img src="img/usagi.jpg"/>
+                </figure>
+                <p>
+                    Usagi, originally named Donki, is a friend of both Chiikawa and Hachiware. Depicted as high-spirited, Usagi occasionally acts as a troublemaker, though it supports its friends when they are in trouble. Similar to Chiikawa, Usagi is unintelligible to the audience, making noises such as "una" and "yaha", but is understandable to the other characters. Usagi's name and design is based on those of a rabbit, though it "may or may not" be one. Usagi is mainly known for being eccentric and a foodie.
+                </p>
+            </section>
+        </article>
+    </body>
+</html>

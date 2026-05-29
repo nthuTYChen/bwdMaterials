@@ -1,0 +1,98 @@
+<!DOCTYPE>
+<html lang="en">
+	<head>
+		<title>14-4: The flexible jQuery "animate()"</title>
+		<!-- jQuery is loaded for you -->
+		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+		<script>
+			
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			html {
+				height: 100%;
+				width: 100%;
+			}
+
+			body {
+				height: 100%;
+				min-height: 100%;
+				width: 100%;
+				overflow-x: hidden;
+				font-family: serif;
+				font-size: 2.4vh;
+				line-height: 3.6vh;
+				text-align: center;
+			}
+
+			h1 {
+				font-family: sans-serif;
+				font-size: 3.6vh;
+				line-height: 5.4vh;
+			}
+
+			h1, section {
+				margin: 2vh 0;
+			}
+
+			article {
+				width: 60vw;
+				margin: 0 20vw;
+			}
+
+			article > section {
+				position: relative;
+				height: 10vh;
+				width: 60vw;
+			}
+
+			article > section > span {
+				display: inline-block;
+				height: 10vh;
+				line-height: 10vh;
+			}
+
+			article > section > span:first-of-type {
+				background-color: crimson;
+				color: white;
+				font-family: sans-serif;
+				cursor: pointer;
+				width: 10vw;
+			}
+
+			article > section > span:last-of-type {
+				background-color: goldenrod;
+				color: black;
+				font-family: serif;
+				width: 50vw;
+			}
+		</style>
+	</head>
+	<body>
+		<article>
+			<h1>Lucky Draw!</h1>
+			<section>
+				<span>No.1</span><span>You will pass all final exams!</span>
+			</section>
+			<section>
+				<span>No.2</span><span>You will get a free trip to Europe!</span>
+			</section>
+			<section>
+				<span>No.3</span><span>You will earn five bonus points!</span>
+			</section>
+			<section>
+				<span>No.4</span><span>You will get a free lunch!</span>
+			</section>
+			<section>
+				<span>No.5</span><span>You will see an angel!</span>
+			</section>
+			<section>
+				<span>No.6</span><span>None of these will happen!</span>
+			</section>
+		</article>
+	</body>
+</html>
