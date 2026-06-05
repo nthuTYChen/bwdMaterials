@@ -1,0 +1,154 @@
+<!DOCTYPE>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>15-1: Start from the scratch, again</title>
+		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+		<script>
+			$(window).ready(function() {
+				$("section > h1").on("click", function() {
+					$(this).siblings().slideToggle();
+				});
+			});
+		</script>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			html {
+				height: 100%;
+				width: 100%;
+			}
+
+			body {
+				min-height: 100%;
+				width: 100%;
+				overflow-x: hidden;
+				font-size: 1.8vh;
+				line-height: 2.7vh;
+				font-family: Lora, serif;
+			}
+
+			h1 {
+				font-size: 3.6vh;
+				line-height: 5.4vh;
+				font-family: Elms Sans, sans-serif;
+			}
+
+			article {
+				width: 60vw;
+				margin: 0 20vw;
+				padding: 2vh 0;
+				border-left: 2px dotted grey;
+				border-right: 2px dotted grey;
+			}
+
+			table {
+				width: 100%;
+				text-align: center;
+			}
+
+			table td {
+				width: 50%;
+				padding: 2vh 0;
+			}
+
+			table figure > img {
+				max-width: 20vw;
+				border: 1px solid lightgrey;
+				border-radius: 20vw;
+			}
+
+			article > section {
+				margin: 1vh 0;
+				padding: 0 1vw;
+			}
+
+			article > section > h1 {
+				border-bottom: 2px solid grey;
+			}
+
+			article > section > h1:hover {
+				cursor: pointer;
+			}
+
+			article > section > ul {
+				display: none;
+				list-style-position: inside;
+			}
+
+			article > section > ul > li {
+				margin: 1vh 0;
+			}
+		</style>
+	</head>
+	<body>
+		<article>
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<figure>
+								<img src="img/profile.jpg" />
+							</figure>
+						</td>
+						<td>
+							<h1>Yi-Chuang E. Lin</h1>
+							<p>Associate Professor</p>
+							<p>National Tsing Hua University (Taiwan)</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<section>
+				<h1>Professional Experiences 🠷</h1>
+				<ul>
+					<li>Associate Professor, Department of Foreign Languages and Literature, National Tsing Hua University, Taiwan</li>
+    				<li>Assistant Professor, Department of Applied Foreign Languages, ChaoYang University of Technology, Taiwan</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Journal Publications 🠷</h1>
+				<ul>
+					<li>“The Economic Wonderland of Thomas Pynchon’s The Crying of Lot 49” Critique: Studies in Contemporary Fiction 63.2 (2022): 131-143. A&amp;HCI</li>
+    				<li>Lin, Y. E. “She Walks in Beauty like the Night: Between the Acts of Aufheben” The Explicator 72.2 (2014): 1-4.</li>
+    				<li>Lin, Y. E. “Between the Acts of Eros: Nature and History” Philament ejournal at the university of Sydney (Accepted)</li>
+    				<li>Lin, Y. E. “Between the Acts of Peace and Polemos: Eros, History, and Jan Patočka” Tamkang Review 44.1 (2013): 47-66.</li>
+    				<li>Lin, Y. E. “The Real Fantasy: Thomas Pynchon’s Postmodern Odyssey among the Entropic Whirlpool of Information and Market Economy” New Academia: An International Journal of English Language, Literature and Literary Theory 2.1 (Jan 2013): 163-178.</li>
+    				<li>Lin, Y. E. “Henry James’s Hegelian Subject: A Reading of The Portrait of a Lady” Fiction and Drama 22.1 (2012): 75-101.</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Book Chapters 🠷</h1>
+				<ul>
+					<li>“In the Depth of Water and the Heat of Fire: T. S. Eliot’s The Waste Land as a Modern Descent into the Underworld” The Underworld in Classical and Modern Literature: A Quest for Remembrance. Eds. Madeleine Scherer and Rachel Falconer. The Warwick Series in the Humanities. New York: Routledge, 2020. 153-173.</li>
+      				<li>Lin, Y. E. “ ‘Who’s There?’: The Ghost behind The Black Prince.” Iris Murdoch: Philosopher Meets Novelist. Cambridge: Cambridge Scholars Publishing, 2011. 125-135.</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Conference Papers 🠷</h1>
+				<ul>
+					<li>Lin, Y. E. (Oct 2013) “The Power of Three Guineas and the Feasibility of Women Leaning In”性別正義：探索家庭、校園與職場的重構機制國際會議. 清華大學, 新竹.</li>
+    				<li>Lin, Y. E. (July 2012) “Between the Acts: Historicity, Responsibility, and The Gift of Death.” 3rd Derrida Today Conference. University of California, Irvine.</li>
+    				<li>Lin, Y. E. (June 2011) “The Kierkegaardian Irony of Being in Virginia Woolf.” Contradictory Woolf, The 21st Annual Conference on Virginia Woolf at University of Glasgow, Glasgow, UK.</li>
+    				<li>Lin, Y. E. (Nov 2010) “The Membranous Labyrinth of Everyday Life in Virginia Woolf’s The Years『迷』、『禁』於 日常瑣碎中的《年歲》.”中華民國英美文學學會年會 Taichung, Taiwan.</li>
+    				<li>Lin, Y. E. (Oct 2010) “Un/Covering Selfhood: Freud, Derrida, and Modern Odysseys.” Freud after Derrida organized by Mosaic at University of Manitoba, Winnipeg Canada.</li>
+    				<li>Lin, Y. E. (June 2010) “Art, Nature, and Science: L. M. Montgomery and the Interfacing of the Two Cultures.” L. M. Montgomery and the Matter of Nature, LMM Conference 2010 at University of Prince Edward Island, Canada.</li>
+    				<li>Lin, Y. E. (Feb 2009) “Who’s There? The Ghost Behind The Black Prince.” Philosopher meets Novelist, 2009 Murdoch Conference at University of Porto, Portugal. (in absentia)</li>
+    				<li>Lin, Y. E. (Nov 2008) “What Is in a Name: Postmodern Deconstruction versus Ancient Taoist Philosophy.” Re-Visioning English Studies in Asia, 2008 ELLAK Conference in Korea.</li>
+				</ul>
+			</section>
+			<section>
+				<h1>Honors 🠷</h1>
+				<ul>
+					<li>2019 107學年度院傑出教學獎</li>
+    				<li>R.O.C. Student Doctoral Dissertation Fellowship, Chiang Ching Kuo Foundation for International Scholarly Exchange (2007-2008)</li>
+				</ul>
+			</section>
+		</article>
+	</body>
+</html>

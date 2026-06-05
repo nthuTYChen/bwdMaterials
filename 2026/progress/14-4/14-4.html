@@ -5,7 +5,12 @@
 		<!-- jQuery is loaded for you -->
 		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 		<script>
-			
+			$(window).ready(function() {
+				$("section > span:first-of-type").on("click", function() {
+					$(this).animate({left: 0}, 1000);
+					$(this).siblings().animate({width: "50vw"}, 1000);
+				});
+			});
 		</script>
 		<style>
 			* {
@@ -57,6 +62,8 @@
 			}
 
 			article > section > span:first-of-type {
+				position: absolute;
+				left: 50vw;
 				background-color: crimson;
 				color: white;
 				font-family: sans-serif;
@@ -65,10 +72,13 @@
 			}
 
 			article > section > span:last-of-type {
+				position: absolute;
+				right: 0;
 				background-color: goldenrod;
 				color: black;
 				font-family: serif;
-				width: 50vw;
+				width: 0vw;
+				overflow: hidden;
 			}
 		</style>
 	</head>
