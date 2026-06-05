@@ -6,8 +6,47 @@
 		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 		<script>
 			$(window).ready(function() {
+				// Selects the first <span> element that is a direct child of each <section>.
+        		//
+        		// section > span means:
+        		// Select <span> elements that are directly inside a <section>.
+        		//
+        		// :first-of-type means:
+        		// Select the first <span> among the span elements inside the same parent.
+        		//
+        		// .on("click", function() { ... }) adds a click event listener.
+        		// When the selected first <span> is clicked (i.e., the number of a draw), 
+        		// the function below runs.
 				$("section > span:first-of-type").on("click", function() {
+					// this refers to the specific first <span> that was clicked.
+        			//
+        			// $(this) converts the clicked span (a draw number) into a jQuery object,
+        			// so that jQuery animation methods can be used on it.
+        			//
+        			// .animate({left: 0}, 1000) animates the CSS left property.
+        			//
+        			// {left: 0} means:
+        			// Move the clicked span until its left value becomes 0. Originally,
+        			// all first <span> elements are set to be "left: 50vw;" in the CSS
+        			// settings, so this animation moves the first <span> elements from the
+        			// right side in a <section> element to the left side.
+        			//
+        			// 1000 means:
+        			// The animation lasts 1000 milliseconds, or 1 second.
 					$(this).animate({left: 0}, 1000);
+					// $(this).siblings() selects all sibling elements of the clicked span.
+					// In this case, it is just the second <span> inside each <section>, which
+					// is the content of a draw.
+        			//
+        			// .animate({width: "50vw"}, 1000) animates their width.
+        			//
+        			// {width: "50vw"} means:
+        			// Change the width of those sibling elements to 50vw (50% of the viewport width). 
+        			// Since the text of a draw is originally hidden with a setting "width: 0;",
+        			// the draw text will gradually expands gradually as the draw number moves from right to left
+        			// above.
+        			//
+        			// 1000 means the width animation also lasts 1 second.
 					$(this).siblings().animate({width: "50vw"}, 1000);
 				});
 			});
@@ -50,6 +89,10 @@
 			}
 
 			article > section {
+				/* The position is set to be relative for <section> not to really change
+				   its position. This for positioning the <span> elements inside each <section>
+				   by referring to the four edges of <section>. See below.
+				*/
 				position: relative;
 				height: 10vh;
 				width: 60vw;
@@ -62,6 +105,12 @@
 			}
 
 			article > section > span:first-of-type {
+				/* Move the first <span> (the number of draws) to the right side
+				   of the container <section>, with a distance of 50vw from the
+				   left edge of the container. Since the entire container has a width of
+				   60vw and the first <span> has a width of 10vw, the follow settings
+				   align this first <span> element perfectly to the right edge of the container.
+				*/
 				position: absolute;
 				left: 50vw;
 				background-color: crimson;
@@ -72,12 +121,23 @@
 			}
 
 			article > section > span:last-of-type {
+				/* Move the second <span> to be aligned perfectly to 
+				   the right edge of the container <section>, so when it
+				   expands its width, it expands from left to right.
+				*/
 				position: absolute;
 				right: 0;
 				background-color: goldenrod;
 				color: black;
 				font-family: serif;
+				/* Set the width of the second <span> to 0 to virtually hide
+				   the text of a draw.
+				 */
 				width: 0vw;
+				/* Since the width is set to zero, the content of the element naturally
+				   overflows, and we need to hide the overflowing content to truly hide
+				   these <span> elements.
+				 */
 				overflow: hidden;
 			}
 		</style>

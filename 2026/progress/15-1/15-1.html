@@ -6,7 +6,19 @@
 		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 		<script>
 			$(window).ready(function() {
+				// Selects every <h1> that is a direct child of a <section>.
+				// In the HTML, these are the clickable section headings, such as:
+				// "Professional Experiences 🠷", "Journal Publications 🠷",
+				// "Book Chapters 🠷", "Conference Papers 🠷", and "Honors 🠷".
+				// When the user clicks one of these headings, the function below runs.
 				$("section > h1").on("click", function() {
+					// $(this) refers to the specific <h1> heading that the user clicked.
+					// .siblings() selects the other elements inside the same <section>.
+					// In this HTML structure, the sibling of each section heading is its <ul> list.
+					// .slideToggle() shows the hidden list if it is currently hidden,
+					// or hides the list if it is currently visible.
+					// This works together with the CSS rule "display: none;" on the <ul>,
+					// because the lists are hidden at first and can be opened by clicking the heading.
 					$(this).siblings().slideToggle();
 				});
 			});
@@ -40,50 +52,127 @@
 			}
 
 			article {
+				/* Selects the <article> element, which contains the whole profile page:
+	   			the top table and all the sections. */
+
 				width: 60vw;
+				/* Sets the width of the <article> to 60% of the browser window’s width. */
+
 				margin: 0 20vw;
+				/* Sets the top and bottom margins to 0, and the left and right margins to 20vw.
+	   			Since the article is 60vw wide, 20vw + 60vw + 20vw = 100vw,
+	   			so the article is centered horizontally. */
+
 				padding: 2vh 0;
+				/* Adds vertical space inside the article.
+	   			The top and bottom padding are 2vh, while the left and right padding are 0. */
+
 				border-left: 2px dotted grey;
+				/* Adds a grey dotted border to the left side of the article. */
+
 				border-right: 2px dotted grey;
+				/* Adds a grey dotted border to the right side of the article. */
 			}
 
 			table {
+				/* Selects the <table> inside the article.
+	   			In the HTML, this table contains the profile image on the left
+	   			and the professor’s name and information on the right. */
+
 				width: 100%;
+				/* Makes the table take up the full width of its parent <article>. */
+
 				text-align: center;
+				/* Centers the text inside the table cells, including the name,
+	   			title, and university information. */
 			}
 
 			table td {
+				/* Selects all <td> elements inside the table. */
+
 				width: 50%;
+				/* Makes each table cell take up 50% of the table width.
+	   			Since there are two <td> elements, the image cell and the text cell
+	   			each occupy half of the table. */
+
 				padding: 2vh 0;
+				/* Adds vertical padding inside each table cell.
+	   			The top and bottom padding are 2vh, while the left and right padding are 0. */
 			}
 
 			table figure > img {
+				/* Selects the <img> element that is a direct child of a <figure> inside the table.
+	   			In the HTML, this refers to the profile image: <img src="img/profile.jpg" />. */
+
 				max-width: 20vw;
+				/* Limits the maximum width of the profile image to 20% of the browser window’s width. */
+
 				border: 1px solid lightgrey;
+				/* Adds a thin light-grey border around the profile image. */
+
 				border-radius: 20vw;
+				/* Rounds the corners of the image strongly.
+	   			   Because the value is large, the image will appear circular or oval,
+	   			   depending on the image’s original shape. In this case, the original profile image
+	   			   is a square, so setting a border-radius identical to max-width makes the
+	   			   profile image a round shape. */
 			}
 
 			article > section {
+				/* Selects every <section> that is a direct child of <article>.
+	   			In this HTML, these are the sections for Professional Experiences,
+	   			Journal Publications, Book Chapters, Conference Papers, and Honors. */
+
 				margin: 1vh 0;
+				/* Adds vertical space outside each section.
+	   			   Each section gets 1vh margin above and below, and 0 margin on the left and right. */
+
 				padding: 0 1vw;
+				/* Adds horizontal space inside each section.
+	   			The top and bottom padding are 0, while the left and right padding are 1vw. */
 			}
 
 			article > section > h1 {
+				/* Selects each <h1> that is a direct child of a <section> inside the <article>.
+	   			These are the section headings, such as “Professional Experiences 🠷”
+	   			and “Journal Publications 🠷”. */
+
 				border-bottom: 2px solid grey;
+				/* Adds a grey line under each section heading, so the heading is clearly separated
+				   from its sibling, namely the <ul> element. */
 			}
 
 			article > section > h1:hover {
+				/* Selects a section heading when the user moves the mouse over it. */
+
 				cursor: pointer;
+				/* Changes the mouse cursor into a pointer hand.
+	   				This suggests that the section heading is clickable,
+	   				probably to show or hide the list below it. */
 			}
 
 			article > section > ul {
+				/* Selects each <ul> that is a direct child of a <section> inside the <article>.
+	   			These are the lists under each section heading. */
+
 				display: none;
+				/* Hides the unordered lists by default.
+	   			As a result, the publication lists, experience list, conference list,
+	   			and honors list will not appear when the page first loads. */
+
 				list-style-position: inside;
+				/* Places the bullet points inside the content area of the list.
+	   			This means the bullets align more closely with the list text instead of
+	   			sitting outside the list box. */
 			}
 
 			article > section > ul > li {
+				/* Selects each <li> item that is a direct child of a <ul> inside a section. */
+
 				margin: 1vh 0;
-			}
+				/* Adds vertical space around each list item.
+	   			Each item gets 1vh margin above and below, making the list easier to read. */
+		}
 		</style>
 	</head>
 	<body>
